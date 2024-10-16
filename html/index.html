@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="/style/tailwind.css" rel="stylesheet">
+    <link href="/style/tailwind.css" rel="stylesheet" />
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-</head>
-<body>
-    <nav class="bg-slate-800 flex justify-between">
-        <a href="#" class="uppercase text-4xl text-white font-bold py-5 pl-8"> TerraQuest </a>
-        
-        
-        <ul class="flex center items-center text-white text-xl mr-2">
-          <a href="#" class="mr-2 p-2 text-white"> Home </a>
-          <a
-            href="https://wa.me/+6281259829109?text=Kak%20Mau%20Beli%20Negro"
-            class="mr-2 p-2 text-slate-300"
-          >
-            Beli
+  </head>
+  <body>
+    <!-- FULL BODY WRAPPER / BACKGROUND -->
+    <div class="bg-tq-midnight h-screen">
+      <!-- NAVBAR -->
+      <nav class="bg-tq-midnight py-6 px-8 flex items-center justify-between">
+        <div class="flex flex-row">
+          <a href="#" class="text-4xl text-tq-lmint font-bold">
+            TerraQuest
           </a>
-          <a href="#" class="mr-2 p-2 text-slate-300"> Jual </a>
-          <a href="#" class="mr-2 p-2 text-slate-300"> Tukar-Tambah </a>
-        </ul>
-        
-        <div class="flex items-center text-white">
-          <a href="#" class="text-lg p-2 mr-2">Login</a>
-          <button type="button" href="#" class="text-lg p-2 mr-8 bg-green-700 rounded-lg">Sign Up </button>
+
+          <ul class="flex items-center text-white text-lg ml-1">
+            <li class="ml-7">Home</li>
+            <li class="ml-7">Home</li>
+            <li class="ml-7">Home</li>
+            <li class="ml-7">Home</li>
+          </ul>
         </div>
-        
+
+        <div class="flex items-center text-white">
+          <button onclick="location.href='login.html'" class="text-lg">Sign In</button>
+        </div>
       </nav>
-</body>
+      <!-- NAVBAR END -->
+
+      <!-- MAIN TITLE -->
+      <div
+        class="w-11/12 h-4/6 mx-auto flex flex-col justify-center items-center"
+      >
+        <h1 class="text-9xl text-tq-lmint font-bold">Lorem Ipsum</h1>
+        <h2 class="text-2xl text-white font-base mt-5">
+          Lorem Ipsum Dolor Sit Amet
+        </h2>
+      </div>
+      <!-- MAIN TITLE END -->
+      
+      <!-- CONTENT -->
+       <div class="bg-slate-100 h-screen"></div>
+
+
+
+    </div>
+    <!-- FULL BODY WRAPPER END -->
+  </body>
 </html>
