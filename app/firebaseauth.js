@@ -46,7 +46,6 @@ function showMessage(mTitle, mDesc, divId, stat){
 
 const signUp = document.querySelector('#submitSignUp');
 
-
 signUp.addEventListener("click", (event) => {
     event.preventDefault();
     const email = document.getElementById('rEmail').value;
@@ -86,8 +85,32 @@ signUp.addEventListener("click", (event) => {
             console.log(errorCode);
             if(errorCode=='auth/email-already-in-use'){
                 showMessage(
-                    'Error',
-                    'Email Addres Already Exist !',
+                    'Email Addres Already Exist',
+                    'Diese E-Mail-Adresse wird bereits verwendet. Sie können sich anmelden oder eine andere E-Mail-Adresse verwenden',
+                    'Up',
+                    false
+                )
+            }
+            else if(errorCode=='auth/missing-email'){
+                showMessage(
+                    'Email Missing',
+                    '',
+                    'Up',
+                    false
+                )
+            }
+            else if(errorCode=='auth/invalid-email'){
+                showMessage(
+                    'Email Invalid',
+                    '',
+                    'Up',
+                    false
+                )
+            }
+            else if(errorCode=='auth/weak-password'){
+                showMessage(
+                    'Weak Password',
+                    "Password must contain numbers (0-9) and uppercase/lowercase letters (a-z / A-Z)",
                     'Up',
                     false
                 )
