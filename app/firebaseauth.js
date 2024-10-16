@@ -18,17 +18,20 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+
+//divId = "In"(signIn) or "Up"(signUp)
+//stat = true (check), false (alert)
 function showMessage(mTitle, mDesc, divId, stat){
-    var messageDiv=document.getElementById(divId);
-    var messageTitle=document.getElementById('titleMessage');
-    var messageDesc=document.getElementById('descMessage');
-    var alert=document.querySelector('.redAlert')
-    var check=document.querySelector('.greenCheck')
+    var messageDiv=document.getElementById("message"+divId);
+    var messageTitle=document.getElementById('titleMessage'+divId);
+    var messageDesc=document.getElementById('descMessage'+divId);
+    var alert=document.querySelector('.redAlert'+divId)
+    var check=document.querySelector('.greenCheck'+divId)
     messageDiv.style.display="block";
     messageTitle.innerHTML=mTitle;
     messageDesc.innerHTML=mDesc;
     messageDiv.style.opacity=1;
-    if(stat==1){
+    if(stat){
         alert.style.display="none";
         check.style.display="block";
     }
@@ -65,8 +68,8 @@ signUp.addEventListener("click", (event) => {
             showMessage(
                 'Success',
                 'Account Created Successfully',
-                'signUpMessage',
-                1
+                'Up',
+                true
             );
             const docRef=doc(db, "users", user.uid);
             setDoc(docRef,userData)
@@ -85,16 +88,16 @@ signUp.addEventListener("click", (event) => {
                 showMessage(
                     'Error',
                     'Email Addres Already Exist !',
-                    'signUpMessage',
-                    0
+                    'Up',
+                    false
                 )
             }
             else{
                 showMessage(
                     'Error',
                     'Unable to create user',
-                    'signUpMessage',
-                    0
+                    'Up',
+                    false
                 )
             }
         })
@@ -103,8 +106,8 @@ signUp.addEventListener("click", (event) => {
         showMessage(
             'Error',
             "Password and Retyped Password didn't match",
-            'signUpMessage',
-            0
+            'Up',
+            false
         );
     }
 })
