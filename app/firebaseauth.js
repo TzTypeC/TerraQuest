@@ -60,7 +60,8 @@ signUp.addEventListener("click", (event) => {
         const docRef=doc(db, "users", user.uid);
         setDoc(docRef,userData)
         .then(()=>{
-            window.location.href='/html/login.html'
+            document.querySelector(".container").classList.remove("sign-up-mode");
+            document.title = "Sign In"
         })
         .catch((error)=>{
             console.error("error writing document", error);
