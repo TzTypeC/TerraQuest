@@ -69,13 +69,13 @@
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class='bx bxs-user'></i>
-              <input type="text" placeholder="Username" />
+              <input type="email" placeholder="Email" id="inEmail"/>
             </div>
             <div class="input-field">
               <i class='bx bxs-lock-alt' ></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" id="inPassword"/>
             </div>
-            <input type="submit" value="Login" class="btn solid" />
+            <button type="submit" id="submitSignIn" class="btn solid">Login</button>
             <p class="social-text">Or Continue </p>
             <div class="social-media">
               <a href="#" class="social-icon">
@@ -147,7 +147,7 @@
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" id="rPassword" required/>
+              <input type="password" placeholder="Password" id="rPassword" oninput="validatePassword()" onblur="hideMessage()"/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
@@ -193,7 +193,6 @@
         </div>
       </div>
     </div>
-
-    <script src="/app/login.js"></script>
+    <script type="module" src="/app/login.js"></script>
   </body>
 </html>

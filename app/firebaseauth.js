@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import{getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"
-import{getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"
+import{getFirestore, setDoc, doc, getDoc} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -41,6 +41,7 @@ function showMessage(mTitle, mDesc, divId, stat){
     }
     setTimeout(function(){
         messageDiv.style.opacity=0;
+        messageDiv.style.display='none';
     },5000)
 }
 
@@ -91,26 +92,10 @@ signUp.addEventListener("click", (event) => {
                     false
                 )
             }
-            else if(errorCode=='auth/missing-email'){
-                showMessage(
-                    'Email Missing',
-                    '',
-                    'Up',
-                    false
-                )
-            }
             else if(errorCode=='auth/invalid-email'){
                 showMessage(
                     'Email Invalid',
-                    '',
-                    'Up',
-                    false
-                )
-            }
-            else if(errorCode=='auth/weak-password'){
-                showMessage(
-                    'Weak Password',
-                    "Password must contain numbers (0-9) and uppercase/lowercase letters (a-z / A-Z)",
+                    'Please enter a valid email address',
                     'Up',
                     false
                 )
@@ -132,5 +117,59 @@ signUp.addEventListener("click", (event) => {
             'Up',
             false
         );
+        document.getElementById('rPasswordConfirm').value = ''
     }
+})
+
+const signIn = document.getElementById('submitSignIn')
+signIn.addEventListener('click', (event) =>{
+    event.preventDefault();
+    const email=document.getElementById('inEmail').value;
+    const password=document.getElementById('inPassword').value;
+    const auth=getAuth();
+    const db=getFirestore();
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential)=>{
+        showMessage(
+            'Success',
+            'Login is successful',
+            'In',
+            true
+        )
+        const user = userCredential.user;
+        localStorage.setItem('loggedInUserId',user.uid)
+        const docRef = doc(db, "users", user.uid);
+        getDoc(docRef)
+        .then((docSnap)=>{
+            if(docSnap.exists()){
+                const userData=docSnap.data();
+                localStorage.setItem('username', userData.username)
+            }
+        })
+        setTimeout(function(){
+            window.location.href='/html/index.html';
+        },3000)
+    })
+    .catch((error)=>{
+        const errorCode=error.code;
+        console.log(errorCode);
+        if(errorCode==='auth/invalid-credential'){
+            showMessage(
+                'Error',
+                'Incorrect Email or Password',
+                'In',
+                false
+            )
+            document.getElementById('inPassword').value = '';
+        }
+        if(errorCode==='auth/invalid-email'){
+            showMessage(
+                'Email Invalid',
+                'Please enter a valid email address',
+                'In',
+                false
+            )
+        }
+    })
 })
