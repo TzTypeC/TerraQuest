@@ -18,14 +18,24 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-function showMessage(mTitle, mDesc, divId, titleId, descId){
+function showMessage(mTitle, mDesc, divId, stat){
     var messageDiv=document.getElementById(divId);
-    var messageTitle=document.getElementById(titleId);
-    var messageDesc=document.getElementById(descId);
+    var messageTitle=document.getElementById('titleMessage');
+    var messageDesc=document.getElementById('descMessage');
+    var alert=document.querySelector('.redAlert')
+    var check=document.querySelector('.greenCheck')
     messageDiv.style.display="block";
     messageTitle.innerHTML=mTitle;
     messageDesc.innerHTML=mDesc;
     messageDiv.style.opacity=1;
+    if(stat==1){
+        alert.style.display="none";
+        check.style.display="block";
+    }
+    else{
+        check.style.display="none";
+        alert.style.display="block";
+    }
     setTimeout(function(){
         messageDiv.style.opacity=0;
     },5000)
@@ -33,60 +43,68 @@ function showMessage(mTitle, mDesc, divId, titleId, descId){
 
 const signUp = document.querySelector('#submitSignUp');
 
+
 signUp.addEventListener("click", (event) => {
     event.preventDefault();
     const email = document.getElementById('rEmail').value;
     const password = document.getElementById('rPassword').value;
     const username = document.getElementById('rUsername').value;
-    
+    const rePassword = document.getElementById('rPasswordConfirm').value;
 
     const auth = getAuth();
     const db = getFirestore();
 
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential)=>{
-        const user = userCredential.user;
-        const userData = {
-            email: email,
-            username: username,
-        };
-        showMessage(
-            'Success',
-            'Account Created Successfully',
-            'signUpMessage',
-            'rTitleMessage',
-            'rDescMessage'
-        );
-        const docRef=doc(db, "users", user.uid);
-        setDoc(docRef,userData)
-        .then(()=>{
-            document.querySelector(".container").classList.remove("sign-up-mode");
-            document.title = "Sign In"
+    if(password==rePassword){
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential)=>{
+            const user = userCredential.user;
+            const userData = {
+                email: email,
+                username: username,
+            };
+            showMessage(
+                'Success',
+                'Account Created Successfully',
+                'signUpMessage',
+                1
+            );
+            const docRef=doc(db, "users", user.uid);
+            setDoc(docRef,userData)
+            .then(()=>{
+                document.querySelector(".container").classList.remove("sign-up-mode");
+                document.title = "Sign In";
+            })
+            .catch((error)=>{
+                console.error("error writing document", error);
+            });
         })
         .catch((error)=>{
-            console.error("error writing document", error);
-
-        });
-    })
-    .catch((error)=>{
-        const errorCode=error.code;
-        if(errorCode=='auth/email-already-in-use'){
-            showMessage(
-                'Error',
-                'Email Addres Already Exist !',
-                'signUpMessage',
-                'rTitleMessage',
-                'rDescMessage'
-            )
-        }
-        else{
-            showMessage(
-                'Error',
-                'Unable to create user',
-                'signUpMessage',
-                'rTitleMessage',
-                'rDescMessage'
-            )
-        }
-    })
+            const errorCode=error.code;
+            console.log(errorCode);
+            if(errorCode=='auth/email-already-in-use'){
+                showMessage(
+                    'Error',
+                    'Email Addres Already Exist !',
+                    'signUpMessage',
+                    0
+                )
+            }
+            else{
+                showMessage(
+                    'Error',
+                    'Unable to create user',
+                    'signUpMessage',
+                    0
+                )
+            }
+        })
+    }
+    else{
+        showMessage(
+            'Error',
+            "Password and Retyped Password didn't match",
+            'signUpMessage',
+            0
+        );
+    }
 })
