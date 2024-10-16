@@ -418,3 +418,9 @@ form.sign-in-form {
     left: 50%;
   }
 }
+
+.messageDiv {
+  opacity: 1;
+  animation: fadeOut 7s forwards;
+  -webkit-animation: fadeOut 7s forwards;
+}

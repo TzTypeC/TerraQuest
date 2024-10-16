@@ -18,8 +18,22 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-const signUp = document.getElementById('sign-in-btn')
-signUp.addEventListener('click', (event) => {
+function showMessage(mTitle, mDesc, divId, titleId, descId){
+    var messageDiv=document.getElementById(divId);
+    var messageTitle=document.getElementById(titleId);
+    var messageDesc=document.getElementById(descId);
+    messageDiv.style.display="block";
+    messageTitle.innerHTML=mTitle;
+    messageDesc.innerHTML=mDesc;
+    messageDiv.style.opacity=1;
+    setTimeout(function(){
+        messageDiv.style.opacity=0;
+    },5000)
+}
+
+const signUp = document.querySelector('#submitSignUp');
+
+signUp.addEventListener("click", (event) => {
     event.preventDefault();
     const email = document.getElementById('rEmail').value;
     const password = document.getElementById('rPassword').value;
@@ -29,12 +43,49 @@ signUp.addEventListener('click', (event) => {
     const auth = getAuth();
     const db = getFirestore();
 
-    createUserWithEmailPasswordUsername(auth, email, password, username)
+    createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential)=>{
         const user = userCredential.user;
         const userData = {
             email: email,
             username: username,
+        };
+        showMessage(
+            'Success',
+            'Account Created Successfully',
+            'signUpMessage',
+            'rTitleMessage',
+            'rDescMessage'
+        );
+        const docRef=doc(db, "users", user.uid);
+        setDoc(docRef,userData)
+        .then(()=>{
+            window.location.href='/html/login.html'
+        })
+        .catch((error)=>{
+            console.error("error writing document", error);
+
+        });
+    })
+    .catch((error)=>{
+        const errorCode=error.code;
+        if(errorCode=='auth/email-already-in-use'){
+            showMessage(
+                'Error',
+                'Email Addres Already Exist !',
+                'signUpMessage',
+                'rTitleMessage',
+                'rDescMessage'
+            )
+        }
+        else{
+            showMessage(
+                'Error',
+                'Unable to create user',
+                'signUpMessage',
+                'rTitleMessage',
+                'rDescMessage'
+            )
         }
     })
 })
