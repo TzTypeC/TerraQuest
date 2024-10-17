@@ -57,32 +57,32 @@ function validatePassword() {
 
   // Cek panjang password
   if (password.length < minLength) {
-      errors.push("Password must be at least 6 characters long.");
+      errors.push(" 6 characters long,");
   }
 
   // Cek apakah password mengandung angka
   if (!hasNumber.test(password)) {
-      errors.push("Password must contain at least one number (0-9).");
+      errors.push(" one number (0-9),");
   }
 
   // Cek apakah password mengandung huruf besar
   if (!hasUppercase.test(password)) {
-      errors.push("Password must contain at least one uppercase letter (A-Z).");
+      errors.push(" one uppercase letter (A-Z),");
   }
 
   // Cek apakah password mengandung huruf kecil
   if (!hasLowercase.test(password)) {
-      errors.push("Password must contain at least one lowercase letter (a-z).");
+      errors.push(" one lowercase letter (a-z),");
   }
 
   // Cek apakah password mengandung karakter spesial
   if (!hasSpecialChar.test(password)) {
-      errors.push("Password must contain at least one special character.");
+      errors.push(" one special character(@#!).");
   }
 
   // Jika ada kesalahan, tampilkan semua dalam satu alert
   if (errors.length > 0) {
-      showMessage("Password Error", errors.join("\n"), "Up", false);  // Menampilkan error
+      showMessage("Password Error", "Password must contain at least" + errors.join("\n"), "Up", false);  // Menampilkan error
       errorCheck = false;
   } else {
       showMessage("Password Valid", "Your password is strong and valid.", "Up", true);  // Tampilkan validasi sukses

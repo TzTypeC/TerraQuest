@@ -12,6 +12,8 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
+
+          <!-- Form Sign In -->
           <form action="#" class="sign-in-form">
             <!-- alert -->
             <div class="messageDiv" id="messageIn" style="display: none;">
@@ -75,95 +77,179 @@
               <input type="password" placeholder="Password" id="inPassword"/>
             </div>
             <button type="submit" id="submitSignIn" class="btn solid">Login</button>
-            <p class="social-text">Or Continue </p>
+            <!-- <p class="social-text">Or Continue </p>
             <div class="social-media">
               <a href="#" class="social-icon">
                 <i class='bx bxl-google' ></i>
               </a>
-            </div>
+            </div> -->
           </form>
-          <form action="#" class="sign-up-form">
-            <!-- alert -->
-            <div class="messageDiv" id="messageUp" style="display: none;">
-              <div role="alert" class="rounded-xl border border-gray-100 bg-white p-4">
-                <div class="flex items-start gap-4">
-                  <!-- red alert -->
-                  <div class="redAlertUp" style="display: none;">
-                    <div class="flex items-center gap-2 text-red-800">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
-                          <path
-                              fill-rule="evenodd"
-                              d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                              clip-rule="evenodd"
-                          />
-                      </svg>
+          <!-- Form Sign In End -->
+
+          <!-- Form Sign up -->
+           <div id="inForm" style="display: none;">
+             <form action="#" class="sign-up-form">
+   
+               <!-- alert -->
+               <div class="messageDiv" id="messageUp" style="display: none;">
+                 <div role="alert" class="rounded-xl border border-gray-100 bg-white p-4">
+                   <div class="flex items-start gap-4">
+                     <!-- red alert -->
+                     <div class="redAlertUp" style="display: none;">
+                       <div class="flex items-center gap-2 text-red-800">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
+                             <path
+                                 fill-rule="evenodd"
+                                 d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                                 clip-rule="evenodd"
+                             />
+                         </svg>
+                       </div>
+                     </div>
+                     <!-- red alert end -->
+                     
+                     <!-- green check -->
+                     <div class="greenCheckUp" style="display: none;">
+                       <span class="text-green-600">
+                         <svg
+                           xmlns="http://www.w3.org/2000/svg"
+                           fill="none"
+                           viewBox="0 0 24 24"
+                           stroke-width="1.5"
+                           stroke="currentColor"
+                           class="size-6"
+                         >
+                           <path
+                             stroke-linecap="round"
+                             stroke-linejoin="round"
+                             d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                           />
+                         </svg>
+                       </span>
+                     </div>
+                     <!-- green check end -->
+                 
+                     <div class="flex-1">
+                       <strong class="block font-medium text-gray-900" id="titleMessageUp"></strong>
+                 
+                       <p class="mt-1 text-sm text-gray-700" id="descMessageUp"></p>
+                     </div>
+                 
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                       </svg>
+                     </button>
+                   </div>
+                 </div>
+               </div>
+               <!-- alert end -->
+   
+               <h2 class="title">Sign up</h2>
+               <div class="input-field">
+                 <i class='bx bxs-user'></i>
+                 <input type="text" placeholder="Username" id="rUsername" required/>
+               </div>
+               <div class="input-field">
+                 <i class='bx bxs-envelope' ></i>
+                 <input type="email" placeholder="Email" id="rEmail" required/>
+               </div>
+               <div class="input-field">
+                 <i class='bx bxs-lock-alt'></i>
+                 <input type="password" placeholder="Password" id="rPassword" oninput="validatePassword()" onblur="hideMessage()"/>
+               </div>
+               <div class="input-field">
+                 <i class='bx bxs-lock-alt'></i>
+                 <input type="password" placeholder="Password Confirm" id="rPasswordConfirm" required/>
+               </div>
+               <button class="btn-s" id="submitSignUp">Sign Up</button>
+               <!-- <p class="social-text">Or Continue With</p>
+               <div class="social-media">
+                 <a href="#" class="social-icon">
+                   <i class='bx bxl-google' ></i>
+                 </a>
+               </div> -->
+             </form>
+           </div>
+          <!-- Form Sign Up End -->
+
+          <!-- Form Forgot Login -->
+            <div id="passForm" style="display: block;">
+              <!-- Form Sign up -->
+              <form action="#" class="sign-up-form">
+
+                <!-- alert -->
+                <div class="messageDiv" id="messageUp" style="display: none;">
+                  <div role="alert" class="rounded-xl border border-gray-100 bg-white p-4">
+                    <div class="flex items-start gap-4">
+                      <!-- red alert -->
+                      <div class="redAlertUp" style="display: none;">
+                        <div class="flex items-center gap-2 text-red-800">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
+                              <path
+                                  fill-rule="evenodd"
+                                  d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                                  clip-rule="evenodd"
+                              />
+                          </svg>
+                        </div>
+                      </div>
+                      <!-- red alert end -->
+                      
+                      <!-- green check -->
+                      <div class="greenCheckUp" style="display: none;">
+                        <span class="text-green-600">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="size-6"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <!-- green check end -->
+                  
+                      <div class="flex-1">
+                        <strong class="block font-medium text-gray-900" id="titleMessageUp"></strong>
+                  
+                        <p class="mt-1 text-sm text-gray-700" id="descMessageUp"></p>
+                      </div>
+                  
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
                     </div>
                   </div>
-                  <!-- red alert end -->
-                  
-                  <!-- green check -->
-                  <div class="greenCheckUp" style="display: none;">
-                    <span class="text-green-600">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="size-6"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                  <!-- green check end -->
-              
-                  <div class="flex-1">
-                    <strong class="block font-medium text-gray-900" id="titleMessageUp"></strong>
-              
-                    <p class="mt-1 text-sm text-gray-700" id="descMessageUp"></p>
-                  </div>
-              
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
                 </div>
-              </div>
+                <!-- alert end -->
+
+                <h2 class="title">Forgot Password</h2>
+                <div class="input-field">
+                  <i class='bx bxs-envelope' ></i>
+                  <input type="email" placeholder="Email" id="rEmail" required/>
+                </div>
+                <button class="btn-s" id="submitSignUp">Send Nudes</button>
+                <!-- <p class="social-text">Or Continue With</p>
+                <div class="social-media">
+                  <a href="#" class="social-icon">
+                    <i class='bx bxl-google' ></i>
+                  </a>
+                </div> -->
+              </form>
             </div>
-            <!-- alert end -->
-            <h2 class="title">Sign up</h2>
-            <div class="input-field">
-              <i class='bx bxs-user'></i>
-              <input type="text" placeholder="Username" id="rUsername" required/>
-            </div>
-            <div class="input-field">
-              <i class='bx bxs-envelope' ></i>
-              <input type="email" placeholder="Email" id="rEmail" required/>
-            </div>
-            <div class="input-field">
-              <i class='bx bxs-lock-alt'></i>
-              <input type="password" placeholder="Password" id="rPassword" oninput="validatePassword()" onblur="hideMessage()"/>
-            </div>
-            <div class="input-field">
-              <i class='bx bxs-lock-alt'></i>
-              <input type="password" placeholder="Password Confirm" id="rPasswordConfirm" required/>
-            </div>
-            <button class="btn-s" id="submitSignUp">Sign Up</button>
-            <p class="social-text">Or Continue With</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class='bx bxl-google' ></i>
-              </a>
-            </div>
-          </form>
+          <!-- Form Forgot Login End -->
+
         </div>
       </div>
 
       <div class="panels-container">
+        <!-- Panel Sign In -->
         <div class="panel left-panel">
           <div class="content">
             <h3>New here ?</h3>
@@ -177,19 +263,40 @@
           </div>
           <img src="/assets/log.svg" class="image" alt="" />
         </div>
-        <div class="panel right-panel">
+        <!-- Panel Sign In End -->
+
+        <!-- Panel Sign Up -->
+        <div id="inPanel" style="display: contents;">
+          <div class="panel right-panel">
+            <div class="content">
+              <h3>One of us ?</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                laboriosam ad deleniti.
+              </p>
+              <button class="btn transparent" id="sign-in-btn">
+                Sign in
+              </button>
+            </div>
+            <img src="/assets/register.svg" class="image" alt="" />
+          </div>
+        </div>
+        <!-- Panel SignUp End -->
+
+        <!-- Panel Forgot Password -->
+        <div class="panel right-panel" id="passPanel" style="display: none;">
           <div class="content">
-            <h3>One of us ?</h3>
+            <h3>Back to Sign in ?</h3>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti.
+              
             </p>
             <button class="btn transparent" id="sign-in-btn">
-              Sign in
+              Sign In
             </button>
           </div>
           <img src="/assets/register.svg" class="image" alt="" />
         </div>
+        <!-- Panel Forgot Password End -->
       </div>
     </div>
     <script type="module" src="/app/login.js"></script>
