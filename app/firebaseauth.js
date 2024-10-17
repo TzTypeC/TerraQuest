@@ -22,22 +22,23 @@ const app = initializeApp(firebaseConfig);
 //divId = "In"(signIn) or "Up"(signUp)
 //stat = true (check), false (alert)
 function showMessage(mTitle, mDesc, divId, stat){
+    console.log(mTitle,mDesc,divId,stat)
     var messageDiv=document.getElementById("message"+divId);
     var messageTitle=document.getElementById('titleMessage'+divId);
     var messageDesc=document.getElementById('descMessage'+divId);
     var alert=document.querySelector('.redAlert'+divId)
     var check=document.querySelector('.greenCheck'+divId)
-    messageDiv.style.display="block";
+    messageDiv.style.display="contents";
     messageTitle.innerHTML=mTitle;
     messageDesc.innerHTML=mDesc;
     messageDiv.style.opacity=1;
     if(stat){
         alert.style.display="none";
-        check.style.display="block";
+        check.style.display="contents";
     }
     else{
         check.style.display="none";
-        alert.style.display="block";
+        alert.style.display="contents";
     }
     setTimeout(function(){
         messageDiv.style.opacity=0;
