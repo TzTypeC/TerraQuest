@@ -76,7 +76,7 @@
               <i class='bx bxs-lock-alt' ></i>
               <input type="password" placeholder="Password" id="inPassword"/>
             </div>
-            <button button type="submit" class="forgot-password-text text-sm">Forgot Password?</button>
+            <a class="forgot-password-text text-sm" id="forgotPasswordBtn">Forgot Password?</a>
             <button type="submit" id="submitSignIn" class="btn solid">Login</button>
             
             <!-- <p class="social-text">Or Continue </p>
@@ -89,7 +89,7 @@
           <!-- Form Sign In End -->
 
           <!-- Form Sign up -->
-           <div id="inForm" style="display: none;">
+           <div id="upForm" style="display: contents;">
              <form action="#" class="sign-up-form">
    
                <!-- alert -->
@@ -174,16 +174,15 @@
           <!-- Form Sign Up End -->
 
           <!-- Form Forgot Login -->
-            <div id="passForm" style="display: contents;">
-             
+            <div id="passForm" style="display: none;">
               <form action="#" class="sign-up-form">
 
                 <!-- alert -->
-                <div class="messageDiv" id="messageUp" style="display: none;">
+                <div class="messageDiv" id="messageFP" style="display: none;">
                   <div role="alert" class="rounded-xl border border-gray-100 bg-white p-4">
                     <div class="flex items-start gap-4">
                       <!-- red alert -->
-                      <div class="redAlertUp" style="display: none;">
+                      <div class="redAlertFP" style="display: none;">
                         <div class="flex items-center gap-2 text-red-800">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
                               <path
@@ -197,7 +196,7 @@
                       <!-- red alert end -->
                       
                       <!-- green check -->
-                      <div class="greenCheckUp" style="display: none;">
+                      <div class="greenCheckFP" style="display: none;">
                         <span class="text-green-600">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -218,9 +217,9 @@
                       <!-- green check end -->
                   
                       <div class="flex-1">
-                        <strong class="block font-medium text-gray-900" id="titleMessageUp"></strong>
+                        <strong class="block font-medium text-gray-900" id="titleMessageFP"></strong>
                   
-                        <p class="mt-1 text-sm text-gray-700" id="descMessageUp"></p>
+                        <p class="mt-1 text-sm text-gray-700" id="descMessageFP"></p>
                       </div>
                   
                           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -234,9 +233,9 @@
                 <h2 class="title">Forgot Password</h2>
                 <div class="input-field">
                   <i class='bx bxs-envelope' ></i>
-                  <input type="email" placeholder="Email" id="rEmail" required/>
+                  <input type="email" placeholder="Email" id="fpEmail" required/>
                 </div>
-                <button class="btn-s" id="submitSignUp">Send Boobs</button>
+                <button class="btn-s" id="submitResetPass">Reset Password</button>
                 <!-- <p class="social-text">Or Continue With</p>
                 <div class="social-media">
                   <a href="#" class="social-icon">
@@ -286,17 +285,19 @@
         <!-- Panel SignUp End -->
 
         <!-- Panel Forgot Password -->
-        <div class="panel right-panel" id="passPanel" style="display: none;">
-          <div class="content">
-            <h3>Back to Sign in ?</h3>
-            <p>
-              
-            </p>
-            <button class="btn transparent" id="sign-in-btn">
-              Sign In
-            </button>
+        <div id="passPanel" style="display: none;">
+          <div class="panel right-panel">
+            <div class="content">
+              <h3>Back to Sign in ?</h3>
+              <p>
+                
+              </p>
+              <button class="btn transparent" id="backToLogin">
+                Sign In
+              </button>
+            </div>
+            <img src="/assets/register.svg" class="image" alt="" />
           </div>
-          <img src="/assets/register.svg" class="image" alt="" />
         </div>
         <!-- Panel Forgot Password End -->
       </div>

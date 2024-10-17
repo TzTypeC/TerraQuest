@@ -8,7 +8,48 @@ const upPasswordConfirmInput = document.getElementById("rPasswordConfirm");
 const inEmailInput = document.getElementById("inEmail");
 const inPasswordInput = document.getElementById("inPassword");
 const submitButtonUp = document.getElementById("submitSignUp");
-const submitButtonIn = document.getElementById("submitSignIn")
+const submitButtonIn = document.getElementById("submitSignIn");
+const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
+const inPanel = document.getElementById("inPanel");
+const passPanel = document.getElementById("passPanel");
+const backToLogin = document.getElementById("backToLogin");
+const passForm = document.getElementById("passForm");
+const upForm = document.getElementById("upForm");
+const fpEmailInput = document.getElementById("fpEmail");
+const submitButtonFPass = document.getElementById("submitResetPass");
+
+backToLogin.addEventListener("click", () => {
+  container.classList.remove("sign-up-mode");
+  setTimeout(function(){    
+    passForm.style.display="none";
+    upForm.style.display="contents";
+    inPanel.style.display="contents";
+    passPanel.style.display="none";
+    document.title ="Sign In";
+  },2000)
+});
+
+backToLogin.addEventListener("click", () => {
+  container.classList.remove("sign-up-mode");
+  setTimeout(function(){    
+    passForm.style.display="none";
+    upForm.style.display="contents";
+    inPanel.style.display="contents";
+    passPanel.style.display="none";
+    document.title ="Sign In";
+  },2000)
+});
+
+forgotPasswordBtn.addEventListener("click", () => {
+  passForm.style.display="contents";
+  upForm.style.display="none";
+  passPanel.style.display="contents";
+  inPanel.style.display="none";
+  document.title = "Forgot Password"
+  setTimeout(function(){
+    container.classList.add("sign-up-mode");
+  },100)
+});
 
 sign_up_btn.addEventListener("click", () => {
   container.classList.add("sign-up-mode");
@@ -100,6 +141,8 @@ submitButtonUp.disabled = true;
 submitButtonUp.style.backgroundColor="grey";
 submitButtonIn.disabled = true;
 submitButtonIn.style.backgroundColor="grey";
+submitButtonFPass.disabled=true;
+submitButtonFPass.style.backgroundColor="grey"
 
 // Fungsi untuk memeriksa apakah semua input sudah diisi
 function checkFormInputs() {
@@ -119,6 +162,13 @@ function checkFormInputs() {
       submitButtonIn.disabled=true;
       submitButtonIn.style.backgroundColor="grey"
     }
+    if(fpEmailInput.value){
+      submitButtonFPass.disabled=false;
+      submitButtonFPass.style.backgroundColor="#62959a"
+    } else {
+      submitButtonFPass.disabled=true;
+      submitButtonFPass.style.backgroundColor="grey"
+    }
 }
 
 // Tambahkan event listener untuk setiap input
@@ -128,35 +178,57 @@ upPasswordInput.addEventListener("input", checkFormInputs);
 upPasswordConfirmInput.addEventListener("input", checkFormInputs);
 inPasswordInput.addEventListener("input", checkFormInputs);
 inEmailInput.addEventListener("input", checkFormInputs);
+fpEmailInput.addEventListener("input", checkFormInputs)
 
 // Mengosongkan semua kolom saat pindah ke signIn/Up
 sign_in_btn.addEventListener("click", function(event) {
   event.preventDefault(); // Mencegah reload halaman setelah tombol ditekan
 
   // Clear semua input setelah submit
-  upUsernameInput.value = '';
-  upEmailInput.value = '';
-  upPasswordInput.value = '';
-  upPasswordConfirmInput.value = '';
-  inEmailInput.value = '';
-  inPasswordInput.value = '';
+  setTimeout(function(){
+    upUsernameInput.value = '';
+    upEmailInput.value = '';
+    upPasswordInput.value = '';
+    upPasswordConfirmInput.value = '';
+    inEmailInput.value = '';
+    inPasswordInput.value = '';
+    fpEmailInput.value='';
+  },1500)
 
 });
+
 
 sign_up_btn.addEventListener("click", function(event) {
   event.preventDefault(); // Mencegah reload halaman setelah tombol ditekan
 
   // Clear semua input setelah submit
-  upUsernameInput.value = '';
-  upEmailInput.value = '';
-  upPasswordInput.value = '';
-  upPasswordConfirmInput.value = '';
-  inEmailInput.value = '';
-  inPasswordInput.value = '';
+  setTimeout(function(){
+    upUsernameInput.value = '';
+    upEmailInput.value = '';
+    upPasswordInput.value = '';
+    upPasswordConfirmInput.value = '';
+    inEmailInput.value = '';
+    inPasswordInput.value = '';
+    fpEmailInput.value='';
+  },1500)
 
 });
 
+backToLogin.addEventListener("click", function(event) {
+  event.preventDefault(); // Mencegah reload halaman setelah tombol ditekan
 
+  // Clear semua input setelah submit
+  setTimeout(function(){
+    upUsernameInput.value = '';
+    upEmailInput.value = '';
+    upPasswordInput.value = '';
+    upPasswordConfirmInput.value = '';
+    inEmailInput.value = '';
+    inPasswordInput.value = '';
+    fpEmailInput.value='';
+  },1500)
+
+});
 
 window.validatePassword = validatePassword;
 window.hideMessage = hideMessage;

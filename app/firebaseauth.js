@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import{getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"
+import{getAuth, sendPasswordResetEmail, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"
 import{getFirestore, setDoc, doc, getDoc} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -83,8 +83,9 @@ signUp.addEventListener("click", (event) => {
             });
         })
         .catch((error)=>{
-            const errorCode=error.code;
-            console.log(errorCode);
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode + " " + errorMessage)
             if(errorCode=='auth/email-already-in-use'){
                 showMessage(
                     'Email Addres Already Exist',
@@ -134,7 +135,7 @@ signIn.addEventListener('click', (event) =>{
     .then((userCredential)=>{
         showMessage(
             'Success',
-            'Login is successful',
+            'Login is successful, you will be redirected in a sec...',
             'In',
             true
         )
@@ -153,7 +154,9 @@ signIn.addEventListener('click', (event) =>{
         },3000)
     })
     .catch((error)=>{
-        const errorCode=error.code;
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + " " + errorMessage)
         console.log(errorCode);
         if(errorCode==='auth/invalid-credential'){
             showMessage(
@@ -173,4 +176,35 @@ signIn.addEventListener('click', (event) =>{
             )
         }
     })
+})
+
+const reset = document.getElementById("submitResetPass");
+reset.addEventListener("click", (event) =>{
+    event.preventDefault();
+
+    const email = document.getElementById('fpEmail').value;
+    const auth=getAuth();
+
+    sendPasswordResetEmail(auth, email)
+    .then(() => {
+        showMessage(
+            "Check your inbox",
+            "An email with a link to reset your password was sent to the email address associated with your account",
+            'FP',
+            true
+        )
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage)
+        if(errorCode==='auth/invalid-email'){
+            showMessage(
+                'Email Invalid',
+                'Please enter a valid email address',
+                'FP',
+                false
+            )
+        }
+    });
 })
