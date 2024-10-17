@@ -4,7 +4,8 @@
   "description": "Zakky Zakky\r Tabriz Tabriz",
   "main": "index.js",
   "scripts": {
-    "jek": "npx tailwindcss -i ./style/input.css -o ./style/tailwind-css.css --watch"
+    "jek": "npx tailwindcss -i ./style/input.css -o ./style/tailwind-css.css --watch",
+    "temp-css": "npx tailwindcss -i ./style/input.css -o ./style/temp.css --watch"
   },
   "keywords": [],
   "author": "",

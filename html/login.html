@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/style/login.css" />
-    <link rel="stylesheet" href="/style/tailwind-css.css" />
     <script src="/app/firebaseauth.js" type="module"></script>
     <title>Sign in</title>
   </head>
@@ -66,9 +65,9 @@
               </div>
             </div>
             <!-- alert end -->
-            <h2 class="title text-tq-mint">Sign in</h2>
+            <h2 class="title">Sign in</h2>
             <div class="input-field">
-              <i class='bx bxs-user'></i>
+              <i class='bx bxs-envelope' ></i>
               <input type="email" placeholder="Email" id="inEmail"/>
             </div>
             <div class="input-field">
@@ -138,19 +137,19 @@
             <!-- alert end -->
             <h2 class="title">Sign up</h2>
             <div class="input-field">
-              <i class="fas fa-user"></i>
+              <i class='bx bxs-user'></i>
               <input type="text" placeholder="Username" id="rUsername" required/>
             </div>
             <div class="input-field">
-              <i class="fas fa-envelope"></i>
+              <i class='bx bxs-envelope' ></i>
               <input type="email" placeholder="Email" id="rEmail" required/>
             </div>
             <div class="input-field">
-              <i class="fas fa-lock"></i>
+              <i class='bx bxs-lock-alt'></i>
               <input type="password" placeholder="Password" id="rPassword" oninput="validatePassword()" onblur="hideMessage()"/>
             </div>
             <div class="input-field">
-              <i class="fas fa-lock"></i>
+              <i class='bx bxs-lock-alt'></i>
               <input type="password" placeholder="Password Confirm" id="rPasswordConfirm" required/>
             </div>
             <button class="btn-s" id="submitSignUp">Sign Up</button>
