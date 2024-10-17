@@ -597,22 +597,6 @@ video {
   margin-top: 1.25rem;
 }
 
-.mr-5 {
-  margin-right: 1.25rem;
-}
-
-.mr-10 {
-  margin-right: 2.5rem;
-}
-
-.mr-8 {
-  margin-right: 2rem;
-}
-
-.mr-6 {
-  margin-right: 1.5rem;
-}
-
 .flex {
   display: flex;
 }
@@ -680,10 +664,6 @@ video {
   justify-content: space-between;
 }
 
-.whitespace-pre-line {
-  white-space: pre-line;
-}
-
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -707,16 +687,6 @@ video {
 .bg-violet-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(139 92 246 / var(--tw-bg-opacity));
-}
-
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-violet-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(124 58 237 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-b {
@@ -754,11 +724,6 @@ video {
   padding-right: 2rem;
 }
 
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
 .pb-20 {
   padding-bottom: 5rem;
 }
@@ -767,36 +732,8 @@ video {
   padding-top: 2rem;
 }
 
-.pb-5 {
-  padding-bottom: 1.25rem;
-}
-
-.pb-6 {
-  padding-bottom: 1.5rem;
-}
-
-.pb-32 {
-  padding-bottom: 8rem;
-}
-
-.pb-64 {
-  padding-bottom: 16rem;
-}
-
-.text-center {
-  text-align: center;
-}
-
 .font-poppins {
   font-family: Poppins;
-}
-
-.font-sans {
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-.font-mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .text-2xl {
@@ -819,30 +756,8 @@ video {
   line-height: 1.75rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .font-bold {
   font-weight: 700;
-}
-
-.font-black {
-  font-weight: 900;
-}
-
-.font-extrabold {
-  font-weight: 800;
-}
-
-.font-semibold {
-  font-weight: 600;
 }
 
 .text-tq-vlmint {
@@ -855,45 +770,9 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.underline {
-  text-decoration-line: underline;
-}
-
-.decoration-solid {
-  text-decoration-style: solid;
-}
-
-@media (min-width: 640px) {
-  .sm\:size-8 {
-    width: 2rem;
-    height: 2rem;
-  }
-}
-
 @media (min-width: 768px) {
-  .md\:mb-32 {
-    margin-bottom: 8rem;
-  }
-
-  .md\:block {
-    display: block;
-  }
-
   .md\:flex {
     display: flex;
-  }
-
-  .md\:size-8 {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .md\:pb-32 {
-    padding-bottom: 8rem;
-  }
-
-  .md\:pb-48 {
-    padding-bottom: 12rem;
   }
 
   .md\:text-7xl {

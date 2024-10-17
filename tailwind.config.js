@@ -17,8 +17,10 @@ module.exports = {
         'tq-vlmint':'#f8fff7'
 
 
+      },
+      fontFamily: {
+        poppins: ['Poppins']
       }
-      
     },
   },
   plugins: [],
