@@ -39,6 +39,10 @@ input {
   z-index: 5;
 }
 
+.fix-margin {
+  margin-bottom: 200px;
+}
+
 form {
   display: flex;
   align-items: center;
@@ -100,6 +104,13 @@ form.sign-in-form {
 .input-field input::placeholder {
   color: #aaa;
   font-weight: 500;
+}
+
+.forgot-password-text {
+  margin-left: 215px;
+  margin-bottom: 10px;
+  position: relative;
+  text-decoration: underline;
 }
 
 .social-text {
