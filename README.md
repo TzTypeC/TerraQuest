@@ -4,6 +4,7 @@ Zakky Zakky
 Tabriz Tabriz
 
 # BRAND COLOR
+#05162e
 hsla(215, 45%, 40%, 1) 	#385e94
 hsla(164, 25%, 56%, 1)	#73ab9c 
 hsla(137, 54%, 72%, 1)	#91dea7 
