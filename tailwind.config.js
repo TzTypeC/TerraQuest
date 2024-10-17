@@ -14,7 +14,7 @@ module.exports = {
         'tq-teal': '#abffab',
         'tq-mint': '#dfffd1',
         'tq-lmint':'#f0ffdc',
-        'tq-vlmint':'#fcfffa'
+        'tq-vlmint':'#f8fff7'
 
 
       }
