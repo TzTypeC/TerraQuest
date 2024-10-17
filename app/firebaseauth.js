@@ -5,6 +5,8 @@ import{getFirestore, setDoc, doc, getDoc} from "https://www.gstatic.com/firebase
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+import {encrypt} from './encryptdecrypt.js'
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAyTreQ2OdbCgct4t_y3OENaweKHwEQGKg",
@@ -17,7 +19,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 
 //divId = "In"(signIn) or "Up"(signUp)
 //stat = true (check), false (alert)
@@ -146,7 +147,8 @@ signIn.addEventListener('click', (event) =>{
         .then((docSnap)=>{
             if(docSnap.exists()){
                 const userData=docSnap.data();
-                localStorage.setItem('username', userData.username)
+                const encryptedUsn = encrypt(userData.username);
+                localStorage.setItem('USFwxmJoxR',encryptedUsn)
             }
         })
         setTimeout(function(){
