@@ -153,7 +153,7 @@ signIn.addEventListener('click', (event) =>{
             }
         })
         setTimeout(function(){
-            window.location.href='/html/index.html';
+            window.location.href='./html/index.html';
         },3000)
     })
     .catch((error)=>{
