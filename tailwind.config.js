@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./html/index.html","./html/cssbuild.html"],
+  content: ["./html/index.html","./html/cssbuild.html","./html/forum.html"],
   theme: {
     extend: {
       colors: {
@@ -14,7 +14,7 @@ module.exports = {
         'tq-teal': '#abffab',
         'tq-mint': '#dfffd1',
         'tq-lmint':'#f0ffdc',
-        'tq-vlmint':'#f8fff7'
+        'tq-vlmint':'#f5fffa'
 
 
       },

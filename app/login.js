@@ -150,21 +150,21 @@ function checkFormInputs() {
     // Jika semua input tidak kosong, aktifkan tombol, jika tidak, tetap nonaktifkan
     if (upUsernameInput.value && upEmailInput.value && upPasswordInput.value && upPasswordConfirmInput.value && errorCheck) {
       submitButtonUp.disabled = false; // Aktifkan tombol
-      submitButtonUp.style.backgroundColor="#7cb518";
+      submitButtonUp.style.backgroundColor="#1b3866";
     } else {
       submitButtonUp.disabled = true; // Nonaktifkan tombol
       submitButtonUp.style.backgroundColor="grey";
     }
     if(inEmailInput.value && inPasswordInput.value){
       submitButtonIn.disabled=false;
-      submitButtonIn.style.backgroundColor="#a514a5"
+      submitButtonIn.style.backgroundColor="#1b3866"
     } else {
       submitButtonIn.disabled=true;
       submitButtonIn.style.backgroundColor="grey"
     }
     if(fpEmailInput.value){
       submitButtonFPass.disabled=false;
-      submitButtonFPass.style.backgroundColor="#62959a"
+      submitButtonFPass.style.backgroundColor="crimson"
     } else {
       submitButtonFPass.disabled=true;
       submitButtonFPass.style.backgroundColor="grey"

@@ -5,72 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TerraQuest</title>
     <link href="/style/tailwind-css.css" rel="stylesheet" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <link href="/style/index.css" rel="stylesheet" />
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </head>
   <body>
     <!-- FULL BODY WRAPPER / BACKGROUND -->
-    <div class="bg-tq-midnight w-screen h-screen">
-      <!-- NAVBAR -->
-      <nav
-        class="bg-gradient-to-b from-black to-transparent w-screen pt-8 pb-20 px-10 flex items-center justify-between"
-      >
-        <div class="flex flex-row">
-          <a href="#" class="text-4xl text-tq-vlmint font-poppins font-bold"> TerraQuest </a>
+    <div
+      class="bg-gradient-to-tr from-tq-midnight to-tq-dblue w-full h-screen relative"
+    >
+      <div class="h-[90%] relative">
+        <!-- NAVBAR -->
+        <nav
+          class="bg-gradient-to-r md:from-[#00d89e]/90 md:to-[#abffab]/90 from-[#00d89e]/90 to-[#abffab]/90 backdrop-blur-md sticky z-10 top-0 w-full py-3 px-10 flex items-center justify-between drop-shadow-xl"
+        >
+          <div class="flex flex-row">
+            <a
+              href="#"
+              class="text-4xl text-tq-midnight font-poppins font-bold"
+            >
+              TerraQuest
+            </a>
 
-          <ul class="hidden md:flex items-center text-white text-lg ml-1">
-            <li class="ml-7">Home</li>
-            <li class="ml-7">Forum</li>
-            <li class="ml-7">Guild</li>
-            <li class="ml-7">Guide</li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="flex items-center text-white">
-            <button onclick="location.href='login.html'" class="text-lg" id="loginButton">
-              Sign In
-            </button>
+            <ul
+              class="hidden md:flex items-center text-tq-dblue font-medium font-poppins text-lg ml-1"
+            >
+              <a href="index.html" class="ml-7 hover:text-tq-blue">Home</a>
+              <a href="forum.html" class="ml-7 hover:text-tq-blue">Forum</a>
+              <a href="guide.html" class="ml-7 hover:text-tq-blue">Guide</a>
+              <a href="about.html" class="ml-7 hover:text-tq-blue">About</a>
+            </ul>
           </div>
 
-          <button class="hidden md:block size-8 mr-6" id="accountPageBtn">
-            <h1 class="text-white underline text-lg" id="usnNavbar">Cihuy</h1>
-          </button>
-        </div>
-      </nav>
-      <!-- NAVBAR END -->
-      .
-      <!-- MAIN TITLE -->
-      <div
-        class="w-11/12 h-1/2 mx-auto pb-64 md:pb-48 mb-32 flex flex-col justify-center items-center"
-      >
-        <h1 class="text-center lg:text-9xl md:text-7xl pb-6 text-5xl whitespace-pre-line text-grad font-poppins font-bold">
-          Come with me
-          on a Quest..
-        </h1>
-        <h2 class="text-2xl text-white font-poppins font-base">
-          ..for a cleaner tomorrow.
-        </h2>
-        <div class="circle-primary size-52 absolute bottom-16 left-0"></div>
+          <div>
+            <div class="flex items-center font-poppins">
+              <button
+                onclick="location.href='login.html'"
+                class="text-base text-tq-teal bg-tq-dblue border font-medium border-tq-dblue rounded-lg py-1.5 px-3"
+                id="loginButton"
+              >
+                Sign In
+              </button>
+            </div>
+            <button
+              class="flex-row items-center font-poppins hidden md:block size-8 mr-6"
+              id="accountPageBtn"
+            >
+              <p class="lg:block mr-2 mt-0.5 text-tq-dblue">Logged in as</p>
+              <h1
+                class="text-tq-dblue font-semibold underline text-lg"
+                id="usnNavbar"
+              >
+                Cihuy
+              </h1>
+            </button>
+          </div>
+        </nav>
+        <!-- NAVBAR END -->
 
-        <!-- <svg height="100" width="100" xmlns="http://www.w3.org/2000/svg" class="bg-gradient-to-r from-black to-white bg-clip-content">
-          <defs>
-            <linearGradient x1="50%" y1="92.034%" x2="50%" y2="7.2%" id="a">
-              <stop offset="0%" stop-color="currentColor" />
-              <stop stop-opacity="0" offset="100%" stop-color="white" />
-            </linearGradient>
-          </defs>
-          <circle r="45" cx="50" cy="50" fill="currentColor"/>
-        </svg> -->
+        <!-- MAIN TITLE -->
+        <div
+          class="pb-32 md:pb-96 mt-16 flex relative flex-col justify-center items-center"
+        >
+          <h1
+            class="text-center lg:text-9xl md:text-7xl pb-6 text-5xl whitespace-pre-line text-grad font-poppins font-bold"
+          >
+            Come with us 
+            on a Quest..
+          </h1>
+          <h2 class="text-2xl md:text-4xl text-white font-poppins font-base">
+            ..for a cleaner tomorrow.
+          </h2>
+
+          <div
+            class="circle-primary size-52 absolute -left-32 md:left-0 bottom-0"
+          ></div>
+        </div>
+        <!-- MAIN TITLE END -->
       </div>
-      <!-- MAIN TITLE END -->
 
       <!-- CONTENT -->
-      <div class="bg-red-600 flex justify-center w-screen h-full mx-auto">
-        <div class="w-11/12 h-screen flex flex-col items-center bg-slate-700">
-          <div class="w-11/12 h-4/6 my-10 bg-black"></div>
-          <div class="w-11/12 h-4/6 my-10 bg-black"></div>
+      <div class="bg-slate-100 flex justify-center w-full h-max mx-auto">
+        <div
+          class="w-11/12 h-max mt-12 flex flex-col items-center bg-slate-50 border border-slate-200 rounded-xl"
+        >
+          <div class="w-11/12 h-96 mt-10 bg-black"></div>
+          <div class="w-11/12 h-96 mt-10 bg-black"></div>
+          <div class="w-11/12 h-96 mt-10 bg-black"></div>
+          <div class="w-11/12 h-96 mt-10 bg-black"></div>
         </div>
       </div>
     </div>

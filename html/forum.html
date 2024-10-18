@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TerraQuest</title>
+    <link href="/style/tailwind-css.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="/style/index.css" rel="stylesheet" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  </head>
+  <body>
+    <!-- FULL BODY WRAPPER / BACKGROUND -->
+    <div class="bg-tq-midnight w-full h-screen relative">
+      <!-- NAVBAR -->
+      <nav
+        class="bg-gradient-to-r from-[#00d89e] to-[#abffab] w-full py-2 px-10 flex items-center justify-between sticky top-0"
+      >
+        <div class="flex flex-row">
+          <a
+            href="#"
+            class="text-2xl text-tq-midnight font-poppins font-bold"
+          >
+            TerraQuest
+          </a>
+
+          <ul class="hidden md:flex items-center text-tq-dblue font-normal font-poppins text-base ml-1">
+            <a href="index.html" class="ml-7 hover:text-tq-blue">Home</a>
+            <a href="forum.html" class="ml-7 hover:text-tq-blue">Forum</a>
+            <a href="guide.html" class="ml-7 hover:text-tq-blue">Guide</a>
+            <a href="about.html" class="ml-7 hover:text-tq-blue">About</a>
+          </ul>
+        </div>
+
+        <div>
+          <div class="flex items-center text-white" style="display: none">
+            <button onclick="location.href='login.html'" class="text-lg">
+              Sign In
+            </button>
+          </div>
+
+          <div class="flex flex-row items-center font-poppins">
+            <p class="hidden lg:block mr-2 mt-0.5 text-tq-dblue">
+              Logged in as
+            </p>
+            <button class="text-tq-dblue font-semibold underline text-base">
+              jekthw
+            </button>
+          </div>
+        </div>
+      </nav>
+      <!-- NAVBAR END -->
+
+      <!-- CONTENT -->
+      <div class="bg-slate-100 flex justify-center w-full h-full mx-auto">
+        <div
+          class="w-11/12 h-max mt-6 flex flex-col items-center bg-slate-50 border border-slate-200 rounded-xl"
+        >
+          <div class="w-11/12 h-96 my-10 bg-black"></div>
+          <div class="w-11/12 h-96 my-10 bg-black"></div>
+          <div class="w-11/12 h-96 my-10 bg-black"></div>
+          <div class="w-11/12 h-96 my-10 bg-black"></div>
+        </div>
+      </div>
+    </div>
+    <!-- FULL BODY WRAPPER END -->
+  </body>
+</html>
