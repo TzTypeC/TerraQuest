@@ -5,7 +5,8 @@ import{getFirestore, setDoc, doc, getDoc} from "https://www.gstatic.com/firebase
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-import {encrypt} from './encryptdecrypt.js'
+import { encrypt } from './encryptdecrypt.js';
+import { createUser } from "./database.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -73,6 +74,7 @@ signUp.addEventListener("click", (event) => {
                 'Up',
                 true
             );
+            createUser(user.uid, username);
             const docRef=doc(db, "users", user.uid);
             setDoc(docRef,userData)
             .then(()=>{
