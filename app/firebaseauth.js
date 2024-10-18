@@ -6,7 +6,6 @@ import{getFirestore, setDoc, doc, getDoc} from "https://www.gstatic.com/firebase
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 import { encrypt } from './encryptdecrypt.js';
-import { createUser } from "./database.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {

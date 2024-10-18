@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TerraQuest</title>
-    <link href="/style/tailwind-css.css" rel="stylesheet" />
+    <link href="../style/tailwind-css.css" rel="stylesheet" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link href="/style/index.css" rel="stylesheet" />
+    <link href="../style/index.css" rel="stylesheet" />
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </head>
   <body>
@@ -46,6 +46,7 @@
                 onclick="location.href='login.html'"
                 class="text-sm md:text-base text-tq-teal bg-tq-dblue border font-medium border-tq-dblue rounded-lg py-1.5 px-3"
                 id="loginButton"
+                style="display: none;"
               >
                 Sign In
               </button>
@@ -54,12 +55,11 @@
               class="flex-row items-center font-poppins hidden md:block size-8 mr-6"
               id="accountPageBtn"
             >
-              <p class="hidden mr-2 mt-0.5 text-tq-dblue">Logged in as</p>
+              <p class="mr-2 mt-0.5 text-tq-dblue" style="display: none;"></p>
               <h1
                 class="text-tq-dblue font-semibold underline text-lg"
                 id="usnNavbar"
               >
-                Cihuy
               </h1>
             </button>
           </div>
@@ -117,6 +117,6 @@
       </div>
     </div>
     <!-- FULL BODY WRAPPER END -->
-    <script type="module" src="/app/main.js"></script>
+    <script type="module" src="../app/main.js"></script>
   </body>
 </html>

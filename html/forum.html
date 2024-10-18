@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TerraQuest</title>
-    <link href="/style/tailwind-css.css" rel="stylesheet" />
+    <link href="../style/tailwind-css.css" rel="stylesheet" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link href="/style/index.css" rel="stylesheet" />
+    <link href="../style/index.css" rel="stylesheet" />
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </head>
   <body>
@@ -51,13 +51,11 @@
               class="flex-row items-center font-poppins hidden size-8 mr-6"
               id="accountPageBtn"
             >
-              <p class="mr-2 mt-0.5 text-tq-dblue">Logged in as</p>
+              <p class="mr-2 mt-0.5 text-tq-dblue" style="display: none;"></p>
               <h1
                 class="text-tq-dblue font-semibold underline text-lg"
                 id="usnNavbar"
-              >
-                Cihuy
-              </h1>
+              ></h1>
             </button>
           </div>
         </nav>
@@ -76,5 +74,6 @@
       </div>
     </div>
     <!-- FULL BODY WRAPPER END -->
+    <script src="../app/main.js" type="module"></script>
   </body>
 </html>
