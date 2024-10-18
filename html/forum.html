@@ -17,45 +17,54 @@
     <div class="bg-tq-midnight w-full h-screen relative">
       <!-- NAVBAR -->
       <nav
-        class="bg-gradient-to-r from-[#00d89e] to-[#abffab] w-full py-2 px-10 flex items-center justify-between sticky top-0"
-      >
-        <div class="flex flex-row">
-          <a
-            href="#"
-            class="text-2xl text-tq-midnight font-poppins font-bold"
-          >
-            TerraQuest
-          </a>
+          class="bg-gradient-to-r md:from-[#00d89e]/90 md:to-[#abffab]/90 from-[#00d89e]/90 to-[#abffab]/90 backdrop-blur-md fixed z-10 top-0 w-full py-3 px-10 flex items-center justify-between drop-shadow-xl"
+        >
+          <div class="flex flex-row">
+            <a
+              href="#"
+              class="text-4xl text-tq-midnight font-poppins font-bold"
+            >
+              TerraQuest
+            </a>
 
-          <ul class="hidden md:flex items-center text-tq-dblue font-normal font-poppins text-base ml-1">
-            <a href="index.html" class="ml-7 hover:text-tq-blue">Home</a>
-            <a href="forum.html" class="ml-7 hover:text-tq-blue">Forum</a>
-            <a href="guide.html" class="ml-7 hover:text-tq-blue">Guide</a>
-            <a href="about.html" class="ml-7 hover:text-tq-blue">About</a>
-          </ul>
-        </div>
-
-        <div>
-          <div class="flex items-center text-white" style="display: none">
-            <button onclick="location.href='login.html'" class="text-lg">
-              Sign In
-            </button>
+            <ul
+              class="hidden md:flex items-center text-tq-dblue font-medium font-poppins text-lg ml-1"
+            >
+              <a href="index.html" class="ml-7 hover:text-tq-blue">Home</a>
+              <a href="forum.html" class="ml-7 hover:text-tq-blue">Forum</a>
+              <a href="guide.html" class="ml-7 hover:text-tq-blue">Guide</a>
+              <a href="about.html" class="ml-7 hover:text-tq-blue">About</a>
+            </ul>
           </div>
 
-          <div class="flex flex-row items-center font-poppins">
-            <p class="hidden lg:block mr-2 mt-0.5 text-tq-dblue">
-              Logged in as
-            </p>
-            <button class="text-tq-dblue font-semibold underline text-base">
-              jekthw
+          <div>
+            <div class="flex items-center font-poppins">
+              <button
+                onclick="location.href='login.html'"
+                class="text-sm md:text-base text-tq-teal bg-tq-dblue border font-medium border-tq-dblue rounded-lg py-1.5 px-3"
+                id="loginButton"
+              >
+                Sign In
+              </button>
+            </div>
+            <button
+              class="flex-row items-center font-poppins hidden size-8 mr-6"
+              id="accountPageBtn"
+            >
+              <p class="mr-2 mt-0.5 text-tq-dblue">Logged in as</p>
+              <h1
+                class="text-tq-dblue font-semibold underline text-lg"
+                id="usnNavbar"
+              >
+                Cihuy
+              </h1>
             </button>
           </div>
-        </div>
-      </nav>
+        </nav>
       <!-- NAVBAR END -->
 
       <!-- CONTENT -->
-      <div class="bg-slate-100 flex justify-center w-full h-full mx-auto">
+      <div class="bg-slate-100 pt-16 md:pt-18 flex justify-center w-full h-max mx-auto">
         <div
           class="w-11/12 h-max mt-6 flex flex-col items-center bg-slate-50 border border-slate-200 rounded-xl"
         >

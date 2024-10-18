@@ -15,12 +15,12 @@
   <body>
     <!-- FULL BODY WRAPPER / BACKGROUND -->
     <div
-      class="bg-gradient-to-tr from-tq-midnight to-tq-dblue w-full h-screen relative"
+      class="bg-gradient-to-tr from-tq-midnight to-tq-dblue w-full h-screen relative z-"
     >
       <div class="h-[90%] relative">
         <!-- NAVBAR -->
         <nav
-          class="bg-gradient-to-r md:from-[#00d89e]/90 md:to-[#abffab]/90 from-[#00d89e]/90 to-[#abffab]/90 backdrop-blur-md sticky z-10 top-0 w-full py-3 px-10 flex items-center justify-between drop-shadow-xl"
+          class="bg-gradient-to-r md:from-[#00d89e]/90 md:to-[#abffab]/90 from-[#00d89e]/90 to-[#abffab]/90 backdrop-blur-md fixed z-30 top-0 w-full py-3 px-10 flex items-center justify-between drop-shadow-xl"
         >
           <div class="flex flex-row">
             <a
@@ -44,7 +44,7 @@
             <div class="flex items-center font-poppins">
               <button
                 onclick="location.href='login.html'"
-                class="text-base text-tq-teal bg-tq-dblue border font-medium border-tq-dblue rounded-lg py-1.5 px-3"
+                class="text-sm md:text-base text-tq-teal bg-tq-dblue border font-medium border-tq-dblue rounded-lg py-1.5 px-3"
                 id="loginButton"
               >
                 Sign In
@@ -54,7 +54,7 @@
               class="flex-row items-center font-poppins hidden md:block size-8 mr-6"
               id="accountPageBtn"
             >
-              <p class="lg:block mr-2 mt-0.5 text-tq-dblue">Logged in as</p>
+              <p class="hidden mr-2 mt-0.5 text-tq-dblue">Logged in as</p>
               <h1
                 class="text-tq-dblue font-semibold underline text-lg"
                 id="usnNavbar"
@@ -68,10 +68,10 @@
 
         <!-- MAIN TITLE -->
         <div
-          class="pb-32 md:pb-96 mt-16 flex relative flex-col justify-center items-center"
+          class="pb-32 md:pb-32 pt-32 flex relative flex-col  justify-center items-center"
         >
           <h1
-            class="text-center lg:text-9xl md:text-7xl pb-6 text-5xl whitespace-pre-line text-grad font-poppins font-bold"
+            class="text-center lg:text-9xl md:text-7xl pt-6 pb-6 text-5xl whitespace-pre-line text-grad font-poppins font-bold"
           >
             Come with us 
             on a Quest..
@@ -81,16 +81,33 @@
           </h2>
 
           <div
-            class="circle-primary size-52 absolute -left-32 md:left-0 bottom-0"
+            class="circle-primary size-52 absolute -left-32 md:left-0 bottom-0 z-20"
           ></div>
         </div>
         <!-- MAIN TITLE END -->
       </div>
 
       <!-- CONTENT -->
+
+      <svg
+        id="Layer_2"
+        class="fill-slate-100 w-full absolute -translate-y-[25%] z-0"
+        data-name="Layer 2"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1920 340.2"
+      >
+        <defs>
+        </defs>
+        <g id="Layer_1-2" data-name="Layer 1">
+          <path
+            class="cls-1"
+            d="M1920,82.24V340.2s-1920,0-1920,0V82.24c509.53-109.65,1410.47-109.65,1920,0Z"
+          />
+        </g>
+      </svg>
       <div class="bg-slate-100 flex justify-center w-full h-max mx-auto">
         <div
-          class="w-11/12 h-max mt-12 flex flex-col items-center bg-slate-50 border border-slate-200 rounded-xl"
+          class="w-11/12 h-max mt-12 flex flex-col items-center bg-slate-50 border border-slate-200 rounded-xl z-10"
         >
           <div class="w-11/12 h-96 mt-10 bg-black"></div>
           <div class="w-11/12 h-96 mt-10 bg-black"></div>
