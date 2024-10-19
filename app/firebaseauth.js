@@ -20,6 +20,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+const date = new Date();
+const formatDate = date.toLocaleDateString();
+
 //divId = "In"(signIn) or "Up"(signUp)
 //stat = true (check), false (alert)
 function showMessage(mTitle, mDesc, divId, stat){
@@ -66,6 +69,12 @@ signUp.addEventListener("click", (event) => {
             const userData = {
                 email: email,
                 username: username,
+                exp: 0,
+                post: [],
+                guild: 0,
+                dateJoin: formatDate,
+                followers: [],
+                following: [],
             };
             showMessage(
                 'Success',
@@ -73,7 +82,6 @@ signUp.addEventListener("click", (event) => {
                 'Up',
                 true
             );
-            createUser(user.uid, username);
             const docRef=doc(db, "users", user.uid);
             setDoc(docRef,userData)
             .then(()=>{
