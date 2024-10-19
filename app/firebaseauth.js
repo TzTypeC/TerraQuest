@@ -78,7 +78,7 @@ signUp.addEventListener("click", (event) => {
             setDoc(docRef,userData)
             .then(()=>{
                 document.querySelector(".container").classList.remove("sign-up-mode");
-                document.title = "Sign In";
+                document.title = "Sign In"; 
             })
             .catch((error)=>{
                 console.error("error writing document", error);
