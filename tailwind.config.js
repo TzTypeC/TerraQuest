@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./html/index.html","./html/cssbuild.html","./html/forum.html", "./html/maintenance.html"],
+  content: ["./html/index.html","./html/cssbuild.html","./html/forum.html", "./html/maintenance.html", "./html/upload.html"],
   theme: {
     extend: {
       colors: {
         'tq-midnight' : '#05162e',
         'tq-dblue': '#17254e',
-        'tq-blue': '#385e94',
+        'tq-ablue': '#182e5a',
+        'tq-blue': '#1b3775',
         // JANGAN PAKE CYAN GAK GUNA
         'tq-dcyan':'#2aa887',
         'tq-cyan': '#73ab9c',
@@ -20,7 +21,15 @@ module.exports = {
       },
       fontFamily: {
         poppins: ['Poppins']
-      }
+      },
+
+      backgroundSize: {
+        'size-200': '200% 200%',
+      },
+      backgroundPosition: {
+          'pos-0': '0% 100%',
+          'pos-100': '100% 0%',
+      },
     },
   },
   plugins: [],

@@ -9,159 +9,160 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link href="../style/index.css" rel="stylesheet" />
+    <link href="../style/elements.css" rel="stylesheet" />
     <link rel="shortcut icon" type="image/x-icon" href="terraquest.ico" />
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </head>
   <body>
     <!-- FULL BODY WRAPPER / BACKGROUND -->
-    <div
-      class="bg-gradient-to-tr from-tq-midnight to-tq-dblue w-full h-screen relative z-"
+
+    <!-- NAVBAR -->
+    <nav
+      class="bg-gradient-to-r md:from-[#00d89e]/90 md:to-[#abffab]/90 from-[#00d89e]/90 to-[#abffab]/90 backdrop-blur-md fixed z-50 top-0 w-full py-3 px-10 flex items-center justify-between drop-shadow-xl"
     >
-      <div class="h-[90%] relative">
-        <!-- NAVBAR -->
-        <nav
-          class="bg-gradient-to-r md:from-[#00d89e]/90 md:to-[#abffab]/90 from-[#00d89e]/90 to-[#abffab]/90 backdrop-blur-md fixed z-30 top-0 w-full py-3 px-10 flex items-center justify-between drop-shadow-xl"
+      <div class="flex flex-row">
+        <svg
+          id="Layer_2"
+          data-name="Layer 2"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 251.11 33.62"
+          class="size-4/12 py-1 fill-tq-midnight"
         >
-          <div class="flex flex-row">
-            <svg
-              id="Layer_2"
-              data-name="Layer 2"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 251.11 33.62"
-              class="size-4/12 py-1 fill-tq-midnight"
-            >
-              <g id="Layer_1-2" data-name="Layer 1">
-                <g>
-                  <path
-                    class="cls-2"
-                    d="M9.55,12.85v12.36c0,.86,.2,1.48,.62,1.87s1.11,.57,2.1,.57h3v5.44h-4.06c-5.44,0-8.16-2.65-8.16-7.93V12.85s-3.04,0-3.04,0V7.54H3.04V1.23h6.5V7.54h5.72v5.3h-5.72Z"
-                  />
-                  <path
-                    class="cls-2"
-                    d="M43.48,21.84H24.8c.16,1.84,.8,3.29,1.94,4.33,1.14,1.05,2.54,1.57,4.2,1.57,2.4,0,4.11-1.03,5.12-3.09h6.96c-.73,2.46-2.15,4.48-4.24,6.07-2.1,1.58-4.66,2.38-7.7,2.38-2.46,0-4.66-.55-6.62-1.64s-3.47-2.64-4.57-4.63c-1.09-2-1.64-4.3-1.64-6.92s.54-4.97,1.62-6.96c1.08-2,2.58-3.54,4.52-4.61,1.93-1.08,4.16-1.61,6.68-1.61s4.6,.52,6.52,1.56c1.92,1.05,3.41,2.53,4.48,4.45s1.59,4.13,1.59,6.62c0,.92-.06,1.75-.18,2.49Zm-6.5-4.33c-.02-1.66-.63-2.99-1.79-3.99-1.17-1-2.6-1.5-4.29-1.5-1.6,0-2.94,.48-4.03,1.46-1.09,.97-1.76,2.31-2.01,4.03h12.13Z"
-                  />
-                  <path
-                    class="cls-2"
-                    d="M58.08,8.33c1.34-.77,2.86-1.16,4.59-1.16v6.78h-1.71c-2.03,0-3.56,.48-4.59,1.43-1.04,.95-1.55,2.61-1.55,4.98v12.73h-6.46V7.54h6.46v3.97c.83-1.36,1.92-2.41,3.25-3.18Z"
-                  />
-                  <path
-                    class="cls-2"
-                    d="M76.71,8.33c1.34-.77,2.86-1.16,4.59-1.16v6.78h-1.71c-2.03,0-3.56,.48-4.59,1.43-1.04,.95-1.55,2.61-1.55,4.98v12.73h-6.46V7.54h6.46v3.97c.83-1.36,1.92-2.41,3.25-3.18Z"
-                  />
-                  <path
-                    class="cls-2"
-                    d="M85.52,13.36c1.03-2,2.43-3.54,4.2-4.61s3.74-1.61,5.93-1.61c1.91,0,3.57,.38,5,1.15,1.43,.77,2.57,1.74,3.44,2.91v-3.65h6.5v25.55h-6.5v-3.74c-.83,1.2-1.98,2.19-3.44,2.98-1.46,.78-3.14,1.18-5.05,1.18-2.15,0-4.11-.55-5.88-1.66-1.77-1.1-3.17-2.66-4.2-4.68s-1.55-4.33-1.55-6.94,.52-4.87,1.55-6.87Zm17.64,2.93c-.61-1.12-1.44-1.98-2.49-2.58-1.04-.6-2.17-.9-3.37-.9s-2.3,.29-3.32,.88-1.84,1.44-2.47,2.56c-.64,1.12-.95,2.45-.95,3.99s.31,2.88,.94,4.03,1.46,2.04,2.49,2.65c1.03,.61,2.13,.92,3.29,.92s2.32-.3,3.37-.9c1.05-.6,1.88-1.46,2.49-2.58,.62-1.12,.92-2.47,.92-4.03s-.31-2.92-.92-4.04Z"
-                  />
-                </g>
-                <path
-                  class="cls-1"
-                  d="M130.68,15.15l18.06,18.06h-5.92l-2.04-2.14c-.49,.29-.87,.49-1.36,.68-.39,.19-.87,.39-1.36,.58-1.65,.49-3.5,.87-5.34,.87-9.13,0-16.51-7.48-16.51-16.6V0h16.51c9.22,0,16.6,7.48,16.6,16.6,0,3.69-1.26,7.18-3.3,9.9l-3.98-3.98-.39-.39c1.07-1.65,1.65-3.5,1.65-5.53,0-5.83-4.76-10.58-10.58-10.58h-10.49v10.58c0,5.83,4.76,10.49,10.49,10.49h.49c.58,0,1.17-.1,1.75-.19,.19-.1,.49-.1,.68-.19l-5.24-5.34,.29-6.21Z"
-                />
-                <g>
-                  <path
-                    class="cls-1"
-                    d="M177.93,7.66v25.55h-6.5v-3.23c-.83,1.11-1.91,1.98-3.25,2.61s-2.79,.95-4.36,.95c-2,0-3.77-.42-5.3-1.27-1.54-.85-2.74-2.09-3.62-3.74-.88-1.64-1.31-3.6-1.31-5.88V7.66h6.46v14.06c0,2.03,.51,3.59,1.52,4.68,1.01,1.09,2.4,1.64,4.15,1.64s3.18-.55,4.2-1.64c1.01-1.09,1.52-2.65,1.52-4.68V7.66h6.5Z"
-                  />
-                  <path
-                    class="cls-1"
-                    d="M207.85,22.37h-18.68c.15,1.84,.8,3.29,1.94,4.33,1.14,1.05,2.54,1.57,4.2,1.57,2.4,0,4.1-1.03,5.12-3.09h6.96c-.74,2.46-2.15,4.48-4.24,6.06-2.09,1.58-4.66,2.38-7.7,2.38-2.46,0-4.67-.55-6.62-1.64-1.95-1.09-3.47-2.64-4.57-4.63-1.09-2-1.64-4.3-1.64-6.92s.54-4.96,1.61-6.96c1.08-2,2.58-3.53,4.52-4.61,1.94-1.08,4.17-1.61,6.69-1.61s4.6,.52,6.53,1.57c1.92,1.05,3.41,2.53,4.47,4.45,1.06,1.92,1.59,4.13,1.59,6.62,0,.92-.06,1.75-.18,2.49Zm-6.5-4.33c-.03-1.66-.63-2.99-1.8-3.99-1.17-1-2.6-1.5-4.29-1.5-1.6,0-2.94,.48-4.03,1.45-1.09,.97-1.76,2.31-2.01,4.04h12.13Z"
-                  />
-                  <path
-                    class="cls-1"
-                    d="M216.89,32.49c-1.66-.75-2.97-1.78-3.94-3.07-.97-1.29-1.5-2.72-1.59-4.29h6.5c.12,.98,.61,1.8,1.45,2.44,.85,.65,1.9,.97,3.16,.97s2.19-.25,2.88-.74c.69-.49,1.04-1.12,1.04-1.89,0-.83-.42-1.45-1.27-1.87-.85-.42-2.19-.87-4.04-1.36-1.91-.46-3.47-.94-4.68-1.43-1.21-.49-2.26-1.25-3.14-2.26-.88-1.01-1.31-2.38-1.31-4.1,0-1.41,.41-2.71,1.22-3.87,.81-1.17,1.98-2.09,3.5-2.77,1.52-.68,3.31-1.01,5.37-1.01,3.04,0,5.47,.76,7.29,2.28,1.81,1.52,2.81,3.57,3,6.16h-6.18c-.09-1.01-.52-1.82-1.27-2.42-.75-.6-1.76-.9-3.02-.9-1.17,0-2.07,.22-2.7,.65-.63,.43-.95,1.03-.95,1.8,0,.86,.43,1.51,1.29,1.96,.86,.45,2.2,.9,4.01,1.36,1.84,.46,3.37,.94,4.56,1.43,1.2,.49,2.24,1.25,3.11,2.28,.88,1.03,1.33,2.39,1.36,4.08,0,1.48-.41,2.8-1.22,3.97-.81,1.17-1.98,2.08-3.5,2.74-1.52,.66-3.3,.99-5.33,.99s-3.97-.38-5.63-1.13Z"
-                  />
-                  <path
-                    class="cls-1"
-                    d="M245.39,12.96v12.36c0,.86,.21,1.48,.62,1.87,.42,.38,1.11,.58,2.1,.58h3v5.44h-4.06c-5.44,0-8.16-2.64-8.16-7.93V12.96h-3.04V7.66h3.04V1.34h6.5V7.66h5.72v5.3h-5.72Z"
-                  />
-                </g>
-              </g>
-            </svg>
-            <ul
-              class="hidden md:flex items-center text-tq-dblue font-medium font-poppins text-lg ml-1"
-            >
-              <a href="index.html" class="ml-7 hover:text-tq-blue">Home</a>
-              <a href="forum.html" class="ml-7 hover:text-tq-blue">Forum</a>
-              <a href="guide.html" class="ml-7 hover:text-tq-blue">Guide</a>
-              <a href="about.html" class="ml-7 hover:text-tq-blue">About</a>
-            </ul>
-          </div>
-
-          <div>
-            <div class="flex items-center font-poppins">
-              <button
-                onclick="location.href='login.html'"
-                class="text-sm md:text-base text-tq-teal bg-tq-dblue border font-medium border-tq-dblue rounded-lg py-1.5 px-3"
-                id="loginButton"
-                style="display: none"
-              >
-                Sign In
-              </button>
-            </div>
-            <button
-              class="flex-row items-center font-poppins hidden md:block size-8 mr-6"
-              id="accountPageBtn"
-            >
-              <p class="mr-2 mt-0.5 text-tq-dblue" style="display: none"></p>
-              <h1
-                class="text-tq-dblue font-semibold underline text-lg"
-                id="usnNavbar"
-              ></h1>
-            </button>
-          </div>
-        </nav>
-        <!-- NAVBAR END -->
-
-        <!-- MAIN TITLE -->
-        <div
-          class="pb-32 md:pb-32 pt-32 flex relative flex-col justify-center items-center"
+          <g id="Layer_1-2" data-name="Layer 1">
+            <g>
+              <path
+                class="cls-2"
+                d="M9.55,12.85v12.36c0,.86,.2,1.48,.62,1.87s1.11,.57,2.1,.57h3v5.44h-4.06c-5.44,0-8.16-2.65-8.16-7.93V12.85s-3.04,0-3.04,0V7.54H3.04V1.23h6.5V7.54h5.72v5.3h-5.72Z"
+              />
+              <path
+                class="cls-2"
+                d="M43.48,21.84H24.8c.16,1.84,.8,3.29,1.94,4.33,1.14,1.05,2.54,1.57,4.2,1.57,2.4,0,4.11-1.03,5.12-3.09h6.96c-.73,2.46-2.15,4.48-4.24,6.07-2.1,1.58-4.66,2.38-7.7,2.38-2.46,0-4.66-.55-6.62-1.64s-3.47-2.64-4.57-4.63c-1.09-2-1.64-4.3-1.64-6.92s.54-4.97,1.62-6.96c1.08-2,2.58-3.54,4.52-4.61,1.93-1.08,4.16-1.61,6.68-1.61s4.6,.52,6.52,1.56c1.92,1.05,3.41,2.53,4.48,4.45s1.59,4.13,1.59,6.62c0,.92-.06,1.75-.18,2.49Zm-6.5-4.33c-.02-1.66-.63-2.99-1.79-3.99-1.17-1-2.6-1.5-4.29-1.5-1.6,0-2.94,.48-4.03,1.46-1.09,.97-1.76,2.31-2.01,4.03h12.13Z"
+              />
+              <path
+                class="cls-2"
+                d="M58.08,8.33c1.34-.77,2.86-1.16,4.59-1.16v6.78h-1.71c-2.03,0-3.56,.48-4.59,1.43-1.04,.95-1.55,2.61-1.55,4.98v12.73h-6.46V7.54h6.46v3.97c.83-1.36,1.92-2.41,3.25-3.18Z"
+              />
+              <path
+                class="cls-2"
+                d="M76.71,8.33c1.34-.77,2.86-1.16,4.59-1.16v6.78h-1.71c-2.03,0-3.56,.48-4.59,1.43-1.04,.95-1.55,2.61-1.55,4.98v12.73h-6.46V7.54h6.46v3.97c.83-1.36,1.92-2.41,3.25-3.18Z"
+              />
+              <path
+                class="cls-2"
+                d="M85.52,13.36c1.03-2,2.43-3.54,4.2-4.61s3.74-1.61,5.93-1.61c1.91,0,3.57,.38,5,1.15,1.43,.77,2.57,1.74,3.44,2.91v-3.65h6.5v25.55h-6.5v-3.74c-.83,1.2-1.98,2.19-3.44,2.98-1.46,.78-3.14,1.18-5.05,1.18-2.15,0-4.11-.55-5.88-1.66-1.77-1.1-3.17-2.66-4.2-4.68s-1.55-4.33-1.55-6.94,.52-4.87,1.55-6.87Zm17.64,2.93c-.61-1.12-1.44-1.98-2.49-2.58-1.04-.6-2.17-.9-3.37-.9s-2.3,.29-3.32,.88-1.84,1.44-2.47,2.56c-.64,1.12-.95,2.45-.95,3.99s.31,2.88,.94,4.03,1.46,2.04,2.49,2.65c1.03,.61,2.13,.92,3.29,.92s2.32-.3,3.37-.9c1.05-.6,1.88-1.46,2.49-2.58,.62-1.12,.92-2.47,.92-4.03s-.31-2.92-.92-4.04Z"
+              />
+            </g>
+            <path
+              class="cls-1"
+              d="M130.68,15.15l18.06,18.06h-5.92l-2.04-2.14c-.49,.29-.87,.49-1.36,.68-.39,.19-.87,.39-1.36,.58-1.65,.49-3.5,.87-5.34,.87-9.13,0-16.51-7.48-16.51-16.6V0h16.51c9.22,0,16.6,7.48,16.6,16.6,0,3.69-1.26,7.18-3.3,9.9l-3.98-3.98-.39-.39c1.07-1.65,1.65-3.5,1.65-5.53,0-5.83-4.76-10.58-10.58-10.58h-10.49v10.58c0,5.83,4.76,10.49,10.49,10.49h.49c.58,0,1.17-.1,1.75-.19,.19-.1,.49-.1,.68-.19l-5.24-5.34,.29-6.21Z"
+            />
+            <g>
+              <path
+                class="cls-1"
+                d="M177.93,7.66v25.55h-6.5v-3.23c-.83,1.11-1.91,1.98-3.25,2.61s-2.79,.95-4.36,.95c-2,0-3.77-.42-5.3-1.27-1.54-.85-2.74-2.09-3.62-3.74-.88-1.64-1.31-3.6-1.31-5.88V7.66h6.46v14.06c0,2.03,.51,3.59,1.52,4.68,1.01,1.09,2.4,1.64,4.15,1.64s3.18-.55,4.2-1.64c1.01-1.09,1.52-2.65,1.52-4.68V7.66h6.5Z"
+              />
+              <path
+                class="cls-1"
+                d="M207.85,22.37h-18.68c.15,1.84,.8,3.29,1.94,4.33,1.14,1.05,2.54,1.57,4.2,1.57,2.4,0,4.1-1.03,5.12-3.09h6.96c-.74,2.46-2.15,4.48-4.24,6.06-2.09,1.58-4.66,2.38-7.7,2.38-2.46,0-4.67-.55-6.62-1.64-1.95-1.09-3.47-2.64-4.57-4.63-1.09-2-1.64-4.3-1.64-6.92s.54-4.96,1.61-6.96c1.08-2,2.58-3.53,4.52-4.61,1.94-1.08,4.17-1.61,6.69-1.61s4.6,.52,6.53,1.57c1.92,1.05,3.41,2.53,4.47,4.45,1.06,1.92,1.59,4.13,1.59,6.62,0,.92-.06,1.75-.18,2.49Zm-6.5-4.33c-.03-1.66-.63-2.99-1.8-3.99-1.17-1-2.6-1.5-4.29-1.5-1.6,0-2.94,.48-4.03,1.45-1.09,.97-1.76,2.31-2.01,4.04h12.13Z"
+              />
+              <path
+                class="cls-1"
+                d="M216.89,32.49c-1.66-.75-2.97-1.78-3.94-3.07-.97-1.29-1.5-2.72-1.59-4.29h6.5c.12,.98,.61,1.8,1.45,2.44,.85,.65,1.9,.97,3.16,.97s2.19-.25,2.88-.74c.69-.49,1.04-1.12,1.04-1.89,0-.83-.42-1.45-1.27-1.87-.85-.42-2.19-.87-4.04-1.36-1.91-.46-3.47-.94-4.68-1.43-1.21-.49-2.26-1.25-3.14-2.26-.88-1.01-1.31-2.38-1.31-4.1,0-1.41,.41-2.71,1.22-3.87,.81-1.17,1.98-2.09,3.5-2.77,1.52-.68,3.31-1.01,5.37-1.01,3.04,0,5.47,.76,7.29,2.28,1.81,1.52,2.81,3.57,3,6.16h-6.18c-.09-1.01-.52-1.82-1.27-2.42-.75-.6-1.76-.9-3.02-.9-1.17,0-2.07,.22-2.7,.65-.63,.43-.95,1.03-.95,1.8,0,.86,.43,1.51,1.29,1.96,.86,.45,2.2,.9,4.01,1.36,1.84,.46,3.37,.94,4.56,1.43,1.2,.49,2.24,1.25,3.11,2.28,.88,1.03,1.33,2.39,1.36,4.08,0,1.48-.41,2.8-1.22,3.97-.81,1.17-1.98,2.08-3.5,2.74-1.52,.66-3.3,.99-5.33,.99s-3.97-.38-5.63-1.13Z"
+              />
+              <path
+                class="cls-1"
+                d="M245.39,12.96v12.36c0,.86,.21,1.48,.62,1.87,.42,.38,1.11,.58,2.1,.58h3v5.44h-4.06c-5.44,0-8.16-2.64-8.16-7.93V12.96h-3.04V7.66h3.04V1.34h6.5V7.66h5.72v5.3h-5.72Z"
+              />
+            </g>
+          </g>
+        </svg>
+        <ul
+          class="hidden md:flex items-center text-tq-dblue font-medium font-poppins text-lg ml-1"
         >
-          <h1
-            class="text-center lg:text-9xl md:text-7xl pt-6 pb-6 text-5xl whitespace-pre-line text-grad font-poppins font-bold"
-          >
-            Come join us
-            on a Quest..
-          </h1>
-          <h2 class="text-2xl md:text-4xl text-white font-poppins font-base">
-            ..for a cleaner tomorrow.
-          </h2>
-
-          <div
-            class="circle-primary size-52 absolute -left-32 md:left-0 bottom-0 z-20"
-          ></div>
-        </div>
-        <!-- MAIN TITLE END -->
+          <a href="index.html" class="ml-7 hover:text-tq-blue">Home</a>
+          <a href="forum.html" class="ml-7 hover:text-tq-blue">Forum</a>
+          <a href="guide.html" class="ml-7 hover:text-tq-blue">Guide</a>
+          <a href="about.html" class="ml-7 hover:text-tq-blue">About</a>
+        </ul>
       </div>
 
-      <!-- CONTENT -->
-
-      <svg
-        id="Layer_2"
-        class="fill-slate-100 w-full absolute -translate-y-[25%] z-0"
-        data-name="Layer 2"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1920 340.2"
-      >
-        <defs></defs>
-        <g id="Layer_1-2" data-name="Layer 1">
-          <path
-            class="cls-1"
-            d="M1920,82.24V340.2s-1920,0-1920,0V82.24c509.53-109.65,1410.47-109.65,1920,0Z"
-          />
-        </g>
-      </svg>
-      <div class="bg-slate-100 flex justify-center w-full h-max mx-auto">
-        <div
-          class="w-11/12 h-max mt-12 flex flex-col items-center bg-slate-50 border border-slate-200 rounded-xl z-10"
-        >
-          <div class="w-11/12 h-96 mt-10 bg-black"></div>
-          <div class="w-11/12 h-96 mt-10 bg-black"></div>
-          <div class="w-11/12 h-96 mt-10 bg-black"></div>
-          <div class="w-11/12 h-96 mt-10 bg-black"></div>
+      <div>
+        <div class="flex items-center font-poppins">
+          <button
+            onclick="location.href='login.html'"
+            class="text-sm md:text-base text-tq-teal bg-tq-dblue border font-medium border-tq-dblue rounded-lg py-1.5 px-3"
+            id="loginButton"
+            style="display: none"
+          >
+            Sign In
+          </button>
         </div>
+        <button
+          class="flex-row items-center font-poppins hidden md:block size-8 mr-6"
+          id="accountPageBtn"
+        >
+          <p class="mr-2 mt-0.5 text-tq-dblue" style="display: none"></p>
+          <h1
+            class="text-tq-dblue font-semibold underline text-lg"
+            id="usnNavbar"
+          ></h1>
+        </button>
+      </div>
+    </nav>
+    <div
+      class="h-screen bg-gradient-to-tr from-tq-midnight to-tq-dblue flex justify-center"
+    >
+      <!-- <img
+          src="../assets/main-bg.png"
+          class="object-cover z-0 absolute top-0"
+        /> -->
+
+      <!-- MAIN TITLE -->
+      <!-- <div
+        class="circle-primary size-52 absolute -left-32 md:left-0 bottom-0 z-20"
+      ></div> -->
+      
+      <div class="flex flex-col justify-center items-center h-full w-full sm:mx-16 ml-6 mr-2">
+        <h1
+        class="xl:text-[9rem]/[8rem] lg:whitespace-pre-line lg:text-[8rem]/[7.5rem] md:text-[7rem]/[6.5rem] sm:text-[5rem] text-[5rem]/[4.5rem] text-left sm:text-center text-pretty text-grad font-poppins font-bold mb-6"
+        >Come Join Us
+        On a Quest..
+      </h1>
+      <h2 class="text-2xl md:text-4xl text-white text-center font-poppins font-base text-pretty">
+        ..for a cleaner tomorrow.
+      </h2>
       </div>
     </div>
+
+    <!-- CONTENT -->
+
+    <!-- CURVE -->
+    <svg
+      id="Layer_2"
+      class="fill-slate-100 w-full absolute -translate-y-[25%] z-10"
+      data-name="Layer 2"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1920 340.2"
+    >
+      <defs></defs>
+      <g id="Layer_1-2" data-name="Layer 1">
+        <path
+          class="cls-1"
+          d="M1920,82.24V340.2s-1920,0-1920,0V82.24c509.53-109.65,1410.47-109.65,1920,0Z"
+        />
+      </g>
+    </svg>
+
+    <div class="bg-slate-100 flex justify-center w-full h-max mx-auto">
+      <div
+        class="w-11/12 h-max mt-12 flex flex-col items-center bg-slate-50 border border-slate-200 rounded-xl z-10"
+      >
+        <div class="w-11/12 h-96 mt-10 bg-black"></div>
+        <div class="w-11/12 h-96 mt-10 bg-black"></div>
+        <div class="w-11/12 h-96 mt-10 bg-black"></div>
+        <div class="w-11/12 h-96 mt-10 bg-black"></div>
+      </div>
+    </div>
+
     <!-- FULL BODY WRAPPER END -->
     <script type="module" src="../app/main.js"></script>
   </body>

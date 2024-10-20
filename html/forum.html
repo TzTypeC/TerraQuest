@@ -9,73 +9,74 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link href="../style/index.css" rel="stylesheet" />
+    <link href="../style/elements.css" rel="stylesheet" />
     <link rel="shortcut icon" type="image/x-icon" href="terraquest.ico" />
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   </head>
   <body>
     <!-- FULL BODY WRAPPER / BACKGROUND -->
     <div class="bg-tq-midnight w-full h-screen relative">
-      <!-- NAVBAR -->
+
+      <!-- SIDEBAR -->
+      <!-- <div class="h-full w-64 bg-gradient-to-tr to-tq-ablue from-tq-midnight fixed py-16 z-40" >
+        <ul class="flex flex-col font-poppins divide-y divide-tq-midnight active:*:bg-tq-ablue hover:*:bg-tq-ablue *:text-white *:text-xl *:font-normal *:py-4 *:px-6">
+            <a href="index.html" class="flex flex-row items-baseline"><i class='bx bxs-home pr-2'></i> <h2>Beranda</h2></a>
+            <a href="forum.html" class="flex flex-row items-center bg-tq-midnight"><i class='bx bxs-chat pr-2'></i> <h2>Forum</h2></a>
+            <a href="maintenance.html" class="flex flex-row items-baseline"><i class='bx bxs-book pr-2'></i> <h2>Panduan</h2></a>
+            <a href="maintenance.html" class="flex flex-row items-baseline"><i class='bx bxs-info-circle pr-2'></i> <h2>About</h2></a>
+        </ul>
+      </div> -->
+    
+            <!-- NAVBAR -->
       <nav
-        class="bg-gradient-to-r md:from-[#00d89e]/90 md:to-[#abffab]/90 from-[#00d89e]/90 to-[#abffab]/90 backdrop-blur-md fixed z-10 top-0 w-full py-3 px-10 flex items-center justify-between drop-shadow-xl"
+        class="bg-gradient-to-r md:from-[#00d89e]/90 md:to-[#abffab]/90 from-[#00d89e]/90 to-[#abffab]/90 backdrop-blur-md fixed z-50 top-0 w-full pt-3.5 pb-2 md:pb-4 px-5 md:px-10 flex flex-row items-center justify-between drop-shadow-xl"
       >
         <div class="flex flex-row">
-          <svg
-            id="Layer_2"
-            data-name="Layer 2"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 251.11 33.62"
-            class="size-4/12 py-1 fill-tq-midnight"
-          >
-            <g id="Layer_1-2" data-name="Layer 1">
-              <g>
-                <path
-                  class="cls-2"
-                  d="M9.55,12.85v12.36c0,.86,.2,1.48,.62,1.87s1.11,.57,2.1,.57h3v5.44h-4.06c-5.44,0-8.16-2.65-8.16-7.93V12.85s-3.04,0-3.04,0V7.54H3.04V1.23h6.5V7.54h5.72v5.3h-5.72Z"
-                />
-                <path
-                  class="cls-2"
-                  d="M43.48,21.84H24.8c.16,1.84,.8,3.29,1.94,4.33,1.14,1.05,2.54,1.57,4.2,1.57,2.4,0,4.11-1.03,5.12-3.09h6.96c-.73,2.46-2.15,4.48-4.24,6.07-2.1,1.58-4.66,2.38-7.7,2.38-2.46,0-4.66-.55-6.62-1.64s-3.47-2.64-4.57-4.63c-1.09-2-1.64-4.3-1.64-6.92s.54-4.97,1.62-6.96c1.08-2,2.58-3.54,4.52-4.61,1.93-1.08,4.16-1.61,6.68-1.61s4.6,.52,6.52,1.56c1.92,1.05,3.41,2.53,4.48,4.45s1.59,4.13,1.59,6.62c0,.92-.06,1.75-.18,2.49Zm-6.5-4.33c-.02-1.66-.63-2.99-1.79-3.99-1.17-1-2.6-1.5-4.29-1.5-1.6,0-2.94,.48-4.03,1.46-1.09,.97-1.76,2.31-2.01,4.03h12.13Z"
-                />
-                <path
-                  class="cls-2"
-                  d="M58.08,8.33c1.34-.77,2.86-1.16,4.59-1.16v6.78h-1.71c-2.03,0-3.56,.48-4.59,1.43-1.04,.95-1.55,2.61-1.55,4.98v12.73h-6.46V7.54h6.46v3.97c.83-1.36,1.92-2.41,3.25-3.18Z"
-                />
-                <path
-                  class="cls-2"
-                  d="M76.71,8.33c1.34-.77,2.86-1.16,4.59-1.16v6.78h-1.71c-2.03,0-3.56,.48-4.59,1.43-1.04,.95-1.55,2.61-1.55,4.98v12.73h-6.46V7.54h6.46v3.97c.83-1.36,1.92-2.41,3.25-3.18Z"
-                />
-                <path
-                  class="cls-2"
-                  d="M85.52,13.36c1.03-2,2.43-3.54,4.2-4.61s3.74-1.61,5.93-1.61c1.91,0,3.57,.38,5,1.15,1.43,.77,2.57,1.74,3.44,2.91v-3.65h6.5v25.55h-6.5v-3.74c-.83,1.2-1.98,2.19-3.44,2.98-1.46,.78-3.14,1.18-5.05,1.18-2.15,0-4.11-.55-5.88-1.66-1.77-1.1-3.17-2.66-4.2-4.68s-1.55-4.33-1.55-6.94,.52-4.87,1.55-6.87Zm17.64,2.93c-.61-1.12-1.44-1.98-2.49-2.58-1.04-.6-2.17-.9-3.37-.9s-2.3,.29-3.32,.88-1.84,1.44-2.47,2.56c-.64,1.12-.95,2.45-.95,3.99s.31,2.88,.94,4.03,1.46,2.04,2.49,2.65c1.03,.61,2.13,.92,3.29,.92s2.32-.3,3.37-.9c1.05-.6,1.88-1.46,2.49-2.58,.62-1.12,.92-2.47,.92-4.03s-.31-2.92-.92-4.04Z"
-                />
-              </g>
-              <path
-                class="cls-1"
-                d="M130.68,15.15l18.06,18.06h-5.92l-2.04-2.14c-.49,.29-.87,.49-1.36,.68-.39,.19-.87,.39-1.36,.58-1.65,.49-3.5,.87-5.34,.87-9.13,0-16.51-7.48-16.51-16.6V0h16.51c9.22,0,16.6,7.48,16.6,16.6,0,3.69-1.26,7.18-3.3,9.9l-3.98-3.98-.39-.39c1.07-1.65,1.65-3.5,1.65-5.53,0-5.83-4.76-10.58-10.58-10.58h-10.49v10.58c0,5.83,4.76,10.49,10.49,10.49h.49c.58,0,1.17-.1,1.75-.19,.19-.1,.49-.1,.68-.19l-5.24-5.34,.29-6.21Z"
-              />
-              <g>
-                <path
-                  class="cls-1"
-                  d="M177.93,7.66v25.55h-6.5v-3.23c-.83,1.11-1.91,1.98-3.25,2.61s-2.79,.95-4.36,.95c-2,0-3.77-.42-5.3-1.27-1.54-.85-2.74-2.09-3.62-3.74-.88-1.64-1.31-3.6-1.31-5.88V7.66h6.46v14.06c0,2.03,.51,3.59,1.52,4.68,1.01,1.09,2.4,1.64,4.15,1.64s3.18-.55,4.2-1.64c1.01-1.09,1.52-2.65,1.52-4.68V7.66h6.5Z"
-                />
-                <path
-                  class="cls-1"
-                  d="M207.85,22.37h-18.68c.15,1.84,.8,3.29,1.94,4.33,1.14,1.05,2.54,1.57,4.2,1.57,2.4,0,4.1-1.03,5.12-3.09h6.96c-.74,2.46-2.15,4.48-4.24,6.06-2.09,1.58-4.66,2.38-7.7,2.38-2.46,0-4.67-.55-6.62-1.64-1.95-1.09-3.47-2.64-4.57-4.63-1.09-2-1.64-4.3-1.64-6.92s.54-4.96,1.61-6.96c1.08-2,2.58-3.53,4.52-4.61,1.94-1.08,4.17-1.61,6.69-1.61s4.6,.52,6.53,1.57c1.92,1.05,3.41,2.53,4.47,4.45,1.06,1.92,1.59,4.13,1.59,6.62,0,.92-.06,1.75-.18,2.49Zm-6.5-4.33c-.03-1.66-.63-2.99-1.8-3.99-1.17-1-2.6-1.5-4.29-1.5-1.6,0-2.94,.48-4.03,1.45-1.09,.97-1.76,2.31-2.01,4.04h12.13Z"
-                />
-                <path
-                  class="cls-1"
-                  d="M216.89,32.49c-1.66-.75-2.97-1.78-3.94-3.07-.97-1.29-1.5-2.72-1.59-4.29h6.5c.12,.98,.61,1.8,1.45,2.44,.85,.65,1.9,.97,3.16,.97s2.19-.25,2.88-.74c.69-.49,1.04-1.12,1.04-1.89,0-.83-.42-1.45-1.27-1.87-.85-.42-2.19-.87-4.04-1.36-1.91-.46-3.47-.94-4.68-1.43-1.21-.49-2.26-1.25-3.14-2.26-.88-1.01-1.31-2.38-1.31-4.1,0-1.41,.41-2.71,1.22-3.87,.81-1.17,1.98-2.09,3.5-2.77,1.52-.68,3.31-1.01,5.37-1.01,3.04,0,5.47,.76,7.29,2.28,1.81,1.52,2.81,3.57,3,6.16h-6.18c-.09-1.01-.52-1.82-1.27-2.42-.75-.6-1.76-.9-3.02-.9-1.17,0-2.07,.22-2.7,.65-.63,.43-.95,1.03-.95,1.8,0,.86,.43,1.51,1.29,1.96,.86,.45,2.2,.9,4.01,1.36,1.84,.46,3.37,.94,4.56,1.43,1.2,.49,2.24,1.25,3.11,2.28,.88,1.03,1.33,2.39,1.36,4.08,0,1.48-.41,2.8-1.22,3.97-.81,1.17-1.98,2.08-3.5,2.74-1.52,.66-3.3,.99-5.33,.99s-3.97-.38-5.63-1.13Z"
-                />
-                <path
-                  class="cls-1"
-                  d="M245.39,12.96v12.36c0,.86,.21,1.48,.62,1.87,.42,.38,1.11,.58,2.1,.58h3v5.44h-4.06c-5.44,0-8.16-2.64-8.16-7.93V12.96h-3.04V7.66h3.04V1.34h6.5V7.66h5.72v5.3h-5.72Z"
-                />
-              </g>
-            </g>
-          </svg>
+          <!-- TERRAQEUST & BURGER -->
+          <div class="flex flex-row items-start">
+            <div class="block md:hidden">
+              <button href="#" class="bx bx-menu text-3xl mr-4 text-tq-midnight"></button>
+            </div>
 
+            <!-- TERRAQUSET LOGO -->
+            <svg
+              id="Layer_2"
+              class="w-48"
+              data-name="Layer 2"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 647.32 86.68"
+            >
+              <defs>
+                <style>
+                  .cls-1 {
+                    fill: url(#linear-gradient);
+                  }
+                </style>
+                <linearGradient
+                  id="linear-gradient"
+                  x1="152.59"
+                  y1="219.06"
+                  x2="500.39"
+                  y2="-128.74"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0" stop-color="#05162e" />
+                  <stop offset=".48" stop-color="#17254e" />
+                  <stop offset="1" stop-color="#1b3775" />
+                </linearGradient>
+              </defs>
+              <g id="Layer_1-2" data-name="Layer 1">
+                <path
+                  class="cls-1"
+                  d="M24.62,32.48v31.87c-.01,2.21,.51,3.83,1.59,4.82,1.08,.99,2.87,1.48,5.41,1.48h7.74v14.03h-10.48c-14.03,0-21.05-6.82-21.05-20.45v-31.74s-7.84,0-7.84,0v-13.68H7.85V2.52H24.62V18.8h14.74v13.68h-14.74Zm87.5,23.18H63.95c.4,4.75,2.07,8.48,5,11.17,2.93,2.7,6.54,4.05,10.82,4.05,6.19,0,10.59-2.65,13.2-7.97h17.94c-1.89,6.34-5.55,11.56-10.93,15.65-5.4,4.08-12.02,6.12-19.86,6.12-6.34,0-12.03-1.42-17.06-4.23-5.04-2.81-8.96-6.8-11.77-11.94-2.81-5.16-4.22-11.1-4.22-17.83s1.39-12.81,4.17-17.96c2.77-5.16,6.66-9.12,11.66-11.89,4.99-2.77,10.73-4.16,17.24-4.16s11.87,1.34,16.82,4.03c4.96,2.7,8.8,6.53,11.54,11.48,2.74,4.95,4.09,10.65,4.09,17.06,0,2.37-.16,4.52-.48,6.42Zm-16.77-11.17c-.06-4.28-1.61-7.71-4.62-10.29-3.02-2.57-6.7-3.86-11.06-3.86-4.12,0-7.59,1.25-10.4,3.75-2.81,2.49-4.53,5.97-5.18,10.4h31.27Zm54.41-23.65c3.45-1.98,7.38-2.98,11.83-2.98v17.48h-4.4c-5.23,0-9.18,1.23-11.83,3.69-2.68,2.46-4,6.74-4,12.83v32.82h-16.65V18.8h16.66v10.23c2.14-3.5,4.94-6.22,8.39-8.2Zm48.04,0c3.45-1.98,7.38-2.98,11.83-2.98v17.48h-4.4c-5.23,0-9.18,1.23-11.83,3.69-2.68,2.46-4,6.74-4,12.83v32.82h-16.65V18.8h16.66v10.23c2.14-3.5,4.94-6.22,8.39-8.2Zm22.71,12.96c2.65-5.16,6.26-9.12,10.82-11.89,4.56-2.77,9.64-4.16,15.28-4.16,4.91,0,9.22,.99,12.9,2.97,3.69,1.98,6.64,4.47,8.86,7.49v-9.4h16.76V84.67h-16.77v-9.63c-2.14,3.09-5.1,5.65-8.86,7.68-3.76,2.02-8.1,3.03-13.02,3.03-5.55,0-10.6-1.43-15.16-4.29-4.56-2.85-8.17-6.87-10.82-12.06s-3.98-11.16-3.98-17.9,1.34-12.57,4-17.71Zm45.47,7.54c-1.58-2.88-3.72-5.11-6.42-6.65-2.69-1.55-5.59-2.32-8.68-2.32s-5.94,.76-8.56,2.26-4.74,3.7-6.37,6.6c-1.64,2.9-2.44,6.32-2.44,10.28s.81,7.43,2.43,10.4,3.76,5.26,6.43,6.85c2.65,1.58,5.49,2.37,8.5,2.37s5.99-.77,8.68-2.32c2.7-1.54,4.84-3.75,6.42-6.65,1.59-2.9,2.38-6.37,2.38-10.4s-.79-7.52-2.37-10.41Zm70.09,13.74l13.52,13.77c-.5,.25-1.25,.25-1.75,.5-1.5,.25-3,.5-4.51,.5h-1.25c-14.77,0-27.04-12.02-27.04-27.04V15.52h27.04c15.02,0,27.29,12.27,27.29,27.29,0,5.26-1.5,10.01-4.26,14.27l1,1,10.26,10.26c5.26-7.01,8.51-16.02,8.51-25.53,0-23.53-19.03-42.81-42.81-42.81h-42.56V42.81c0,23.53,19.02,42.81,42.56,42.81,4.76,0,9.51-1,13.77-2.25,1.25-.5,2.5-1,3.5-1.5,1.25-.5,2.25-1,3.51-1.75l5.26,5.51h15.27l-46.56-46.56-.75,16.02Zm122.57-35.33V85.61h-16.76v-8.32c-2.14,2.85-4.93,5.09-8.38,6.72s-7.19,2.44-11.24,2.44c-5.15,0-9.71-1.09-13.67-3.27-3.96-2.18-7.07-5.39-9.33-9.63-2.26-4.24-3.39-9.29-3.39-15.16V19.74h16.65V56c0,5.23,1.31,9.26,3.92,12.07,2.61,2.82,6.18,4.22,10.7,4.22s8.2-1.41,10.82-4.22c2.62-2.81,3.92-6.84,3.92-12.07V19.74h16.76Zm77.16,37.93h-48.15c.4,4.76,2.06,8.48,4.99,11.18,2.93,2.7,6.54,4.04,10.82,4.04,6.18,0,10.58-2.66,13.2-7.97h17.95c-1.9,6.34-5.55,11.55-10.94,15.64-5.39,4.08-12.01,6.12-19.86,6.12-6.34,0-12.03-1.41-17.06-4.22-5.03-2.81-8.96-6.8-11.77-11.95-2.81-5.15-4.22-11.1-4.22-17.83s1.38-12.8,4.16-17.95c2.77-5.15,6.66-9.11,11.65-11.89,4.99-2.77,10.74-4.16,17.24-4.16s11.87,1.35,16.82,4.04c4.95,2.7,8.8,6.52,11.53,11.47,2.74,4.96,4.1,10.64,4.1,17.06,0,2.38-.16,4.52-.48,6.42Zm-16.97-11.18c-.08-4.28-1.63-7.71-4.64-10.28-3.01-2.58-6.7-3.87-11.06-3.87-4.12,0-7.59,1.25-10.4,3.75-2.82,2.5-4.54,5.97-5.17,10.4h31.27Zm40.28,37.27c-4.28-1.94-7.67-4.58-10.17-7.91-2.5-3.33-3.86-7.01-4.1-11.06h16.76c.32,2.54,1.56,4.64,3.75,6.3,2.18,1.66,4.89,2.5,8.14,2.5s5.65-.63,7.43-1.9c1.78-1.27,2.68-2.89,2.68-4.87,0-2.14-1.09-3.75-3.27-4.82-2.18-1.07-5.65-2.24-10.4-3.51-4.91-1.19-8.94-2.42-12.07-3.68-3.13-1.27-5.83-3.21-8.08-5.83-2.26-2.62-3.39-6.14-3.39-10.58,0-3.64,1.05-6.97,3.15-9.99,2.1-3.01,5.11-5.39,9.04-7.13,3.92-1.74,8.54-2.61,13.85-2.61,7.85,0,14.11,1.96,18.78,5.89,4.68,3.92,7.25,9.21,7.73,15.87h-15.93c-.24-2.61-1.33-4.7-3.27-6.24-1.94-1.54-4.54-2.32-7.79-2.32-3.01,0-5.33,.56-6.96,1.66-1.63,1.11-2.44,2.66-2.44,4.64,0,2.22,1.11,3.91,3.33,5.05,2.22,1.15,5.67,2.32,10.34,3.51,4.76,1.19,8.68,2.42,11.77,3.68,3.09,1.27,5.77,3.23,8.03,5.89,2.26,2.66,3.43,6.16,3.51,10.52,0,3.8-1.05,7.21-3.15,10.23-2.1,3.01-5.11,5.37-9.04,7.07-3.92,1.7-8.5,2.56-13.73,2.56s-10.23-.97-14.51-2.91Zm73.48-50.35v31.87c0,2.22,.54,3.82,1.61,4.81,1.07,.99,2.87,1.49,5.41,1.49h7.73v14.03h-10.46c-14.03,0-21.04-6.82-21.04-20.45v-31.75h-7.85v-13.67h7.85V3.45h16.76V19.74h14.74v13.67h-14.74Z"
+                />
+              </g>
+            </svg>
+            <!-- TERRAQUEST LOGO END -->
+          </div>
+
+          <!-- NAV BUTTONS -->
           <ul
             class="hidden md:flex items-center text-tq-dblue font-medium font-poppins text-lg ml-1"
           >
@@ -86,6 +87,7 @@
           </ul>
         </div>
 
+        <!-- SIGN IN / USER -->
         <div>
           <div class="flex items-center font-poppins">
             <button
@@ -107,56 +109,131 @@
             ></h1>
           </button>
         </div>
+        
       </nav>
-      <!-- NAVBAR END -->
 
       <!-- CONTENT -->
       <div
-        class="bg-slate-100 pt-16 md:pt-18 flex justify-center w-full h-max mx-auto"
+        class="bg-slate-100 pt-16 pt-18 flex flex-col items-center w-full h-max mx-auto"
       >
-        <div
-          class="w-11/12 h-max mt-6 flex flex-col items-center bg-slate-50 border border-slate-200 rounded-xl"
+        <!-- CREATE NEW POST -->
+        <button
+          onclick="location.href='upload.html'"
+          class="w-fit h-16 bg-gradient-to-tr to-tq-blue via-tq-dblue from-tq-midnight bg-size-200 bg-pos-0 hover:bg-pos-100 transition-all duration-300 flex items-center justify-center rounded-xl fixed right-6 bottom-6 z-10"
         >
-          <article class="group flex flex-row h-72 mx-8 mt-8">
-            <div class="flex flex-row h-full w-96">
-              <img
-                alt=""
-                src="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                class="h-full w-full object-cover object-center rounded-l-2xl shadow-xl"
-              />
-              <img
-                alt=""
-                src="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                class="h-full w-full object-cover object-center rounded-r-2xl shadow-xl"
-              />
+          <div
+            class="font-semibold font-poppins text-xl flex items-center text-grad px-5"
+          >
+            <i class="bx bxs-message-square-add text-2xl"></i>
+            <h3 class="hidden md:block pl-2">Create a post..</h3>
+          </div>
+        </button>
+
+        <!-- CONTENT SCROLL -->
+        <div
+          class="w-full md:w-5/6 lg:w-9/12 h-max mt-3 flex flex-col divide-y-2 items-center bg-slate-50 border border-slate-200 rounded-xl"
+        >
+        <article class="h-fit px-8 py-8 relative">
+          <!-- Post Author -->
+          <h2
+            class="text-lg pb-2 font-medium text-gray-900"
+          >
+              Posted by <span class="underline text-xl inline">jkthw</span>
+
+          </h2>
+
+          <!-- Post Images-->
+          <div class="flex flex-col md:flex-row items-center w-full">
+            <div class="h-[270px] w-full md:h-[540px] md:w-1/2">
+              <label class="cursor-pointer relative">
+                <input
+                  type="checkbox"
+                  value=""
+                  class="peer sr-only absolute left-1/2 bottom-1/2"
+                />
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                  class="h-full w-full object-cover object-center rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl shadow-xl peer-checked:object-contain"
+                />
+              </label>
             </div>
-            <div>
-                <div class="px-8 py-4 bg-violet-300">
-                    <a href="#">
-                      <h3 class="text-3xl font-medium text-gray-900">
-                        Finding the Journey to Mordor
-                      </h3>
-                    </a>
-    
-                    <p class="mt-2 line-clamp-3 text-lg/relaxed text-gray-500">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Recusandae dolores, possimus pariatur animi temporibus
-                      nesciunt praesentium dolore sed nulla ipsum eveniet corporis
-                      quidem, mollitia itaque minus soluta, voluptates neque
-                      explicabo tempora nisi culpa eius atque dignissimos. Molestias
-                      explicabo corporis voluptatem?
-                    </p>
-                  </div>
+            <div class="h-[270px] w-full md:h-[540px] md:w-1/2">
+              <label class="cursor-pointer relative">
+                <input
+                  type="checkbox"
+                  value=""
+                  class="peer sr-only absolute left-1/2 bottom-1/2"
+                />
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                  class="h-full w-full object-cover object-center rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl shadow-xl peer-checked:object-contain"
+                />
+              </label>
             </div>
-              
-            
-          </article>
-          <div class="w-11/12 h-96 my-10 bg-black"></div>
-          <div class="w-11/12 h-96 my-10 bg-black"></div>
-          <div class="w-11/12 h-96 my-10 bg-black"></div>
+          </div>
+
+          <!-- Post Title & Description -->
+          <div>
+            <div class="px-8 py-4">
+              <a href="#">
+                <h3 class="text-3xl font-medium text-gray-900">
+                  Finding the Journey to Mordor
+                </h3>
+              </a>
+              <p class="mt-2 line-clamp-3 text-lg/relaxed text-gray-500">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Recusandae dolores, possimus pariatur animi temporibus
+                nesciunt praesentium dolore sed nulla ipsum eveniet corporis
+                quidem, mollitia itaque minus soluta, voluptates neque
+                explicabo tempora nisi culpa eius atque dignissimos. Molestias
+                explicabo corporis voluptatem?
+              </p>
+            </div>
+          </div>
+
+          <!-- Upvote / Downvote Button -->
+          <div class="flex items-center space-x-4 float-right">
+            <button class="p-2 group border rounded-full hover:bg-[#00d89e]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 stroke-tq-dcyan group-hover:stroke-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                />
+              </svg>
+            </button>
+            <span class="text-2xl font-bold">0</span>
+            <button class="p-2 group border rounded-full hover:bg-rose-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 stroke-rose-500 group-hover:stroke-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+              <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+              />
+              </svg>
+            </button>
+          </div>
+
+        </article>
         </div>
       </div>
-    </div>
+    
     <!-- FULL BODY WRAPPER END -->
     <script src="../app/main.js" type="module"></script>
   </body>

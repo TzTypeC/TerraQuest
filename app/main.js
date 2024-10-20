@@ -4,7 +4,7 @@ const loginButton = document.getElementById('loginButton');
 const accountPageBtn = document.getElementById('accountPageBtn');
 console.log(username)
 if(username){
-    accountPageBtn.style.display='contents';
+    accountPageBtn.style.display='block';
     document.getElementById('usnNavbar').innerText=decrypt(username);
     loginButton.style.display='none';
 }else{
