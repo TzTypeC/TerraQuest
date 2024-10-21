@@ -12,3 +12,13 @@
     border-radius: 50%;
     background-image: linear-gradient(90deg, #00d89e 0%, #abffab 100%);
 }
+
+.sidebar-affected {
+    background: red;
+    z-index: 50;
+    
+}
+
+#sidebar-toggle:checked ~ #sided {
+    background: white;
+}

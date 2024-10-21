@@ -8,11 +8,16 @@ document.addEventListener("DOMContentLoaded", function() {
     
     if(username){
         accountPageBtn.style.display='block';
+        accountPageBtnMobile.style.display='block';
         document.getElementById('usnNavbar').innerText=decrypt(username);
+        document.getElementById('usnNavbarMobile').innerText=decrypt(username);
         loginButton.style.display='none';
+        loginButtonMobile.style.display='none';
     }else{
         loginButton.style.display='block';
         accountPageBtn.style.display='none';
+        loginButtonMobile.style.display='block';
+        accountPageBtnMobile.style.display='none';
     }
     
     const submitPostButton = document.getElementById('submitPostButton');
