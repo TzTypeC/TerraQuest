@@ -92,6 +92,8 @@ signUp.addEventListener("click", (event) => {
                         dateJoin: formatDate,
                         followers: [],
                         following: [],
+                        upVotedPost: [],
+                        downVotedPost: [],
                     };
                     // Alert Regist Sukses
                     showMessage(

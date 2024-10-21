@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import { getFirestore, doc, getDoc, collection, getDocs, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { decrypt } from "./encryptdecrypt";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAyTreQ2OdbCgct4t_y3OENaweKHwEQGKg",
@@ -152,28 +153,60 @@ document.addEventListener("DOMContentLoaded", async () => {
 // Tambahkan event listener untuk scroll
 window.addEventListener("scroll", handleScroll);
 
-// Fungsi untuk upvote
 async function upvote(postId) {
-    const postRef = doc(db, "posts", postId);
-    await updateDoc(postRef, {
-        upVote: increment(1) // Increment upVote field
-    });
-    // Ambil elemen untuk mengupdate tampilan
-    const upvoteCountElement = document.getElementById(`upvoteCount-${postId}`);
-    if (upvoteCountElement) {
-        upvoteCountElement.innerText = parseInt(upvoteCountElement.innerText) + 1; // Update tampilan
+    const username = decrypt(localStorage.getItem('USFwxmJoxR'));
+    const userRef = doc(db, "users", username);
+    const userSnapshot = await getDoc(userRef);
+
+    // Cek apakah user sudah upvote post ini
+    if (userSnapshot.exists() && !userSnapshot.data().upVotedPost.includes(postId)) {
+        const postRef = doc(db, "posts", postId);
+        
+        await updateDoc(postRef, {
+            upVote: increment(1) // Increment upVote field
+        });
+        
+        // Update user record
+        await updateDoc(userRef, {
+            upVotedPost: [...userSnapshot.data().upVotedPost, postId] // Tambahkan postId ke upVotedPost
+        });
+        
+        // Ambil elemen untuk mengupdate tampilan
+        const upvoteCountElement = document.getElementById(`upvoteCount-${postId}`);
+        if (upvoteCountElement) {
+            upvoteCountElement.innerText = parseInt(upvoteCountElement.innerText) + 1; // Update tampilan
+        }
+    } else {
+        alert("You have already upvoted this post.");
     }
 }
 
-// Fungsi untuk downvote
+
 async function downvote(postId) {
-    const postRef = doc(db, "posts", postId);
-    await updateDoc(postRef, {
-        downVote: increment(1) // Increment downVote field
-    });
-    // Ambil elemen untuk mengupdate tampilan
-    const downvoteCountElement = document.getElementById(`downvoteCount-${postId}`);
-    if (downvoteCountElement) {
-        downvoteCountElement.innerText = parseInt(downvoteCountElement.innerText) + 1; // Update tampilan
+    const username = decrypt(localStorage.getItem('USFwxmJoxR'));
+    const userRef = doc(db, "users", username);
+    const userSnapshot = await getDoc(userRef);
+
+    // Cek apakah user sudah downvote post ini
+    if (userSnapshot.exists() && !userSnapshot.data().downVotedPost.includes(postId)) {
+        const postRef = doc(db, "posts", postId);
+        
+        await updateDoc(postRef, {
+            downVote: increment(1) // Increment downVote field
+        });
+
+        // Update user record
+        await updateDoc(userRef, {
+            downVotedPost: [...userSnapshot.data().downVotedPost, postId] // Tambahkan postId ke downVotedPost
+        });
+
+        // Ambil elemen untuk mengupdate tampilan
+        const downvoteCountElement = document.getElementById(`downvoteCount-${postId}`);
+        if (downvoteCountElement) {
+            downvoteCountElement.innerText = parseInt(downvoteCountElement.innerText) + 1; // Update tampilan
+        }
+    } else {
+        alert("You have already downvoted this post.");
     }
 }
+
