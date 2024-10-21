@@ -187,6 +187,7 @@
         <!-- CONTENT SCROLL -->
         <div
           class="w-full md:w-5/6 lg:w-9/12 h-max mt-3 flex flex-col divide-y-2 items-center bg-slate-50 border border-slate-200 rounded-xl"
+          id="contentForum"
         >
         <article class="h-fit px-8 py-8 relative">
           <!-- Post Author -->
@@ -291,49 +292,6 @@
     
     <!-- FULL BODY WRAPPER END -->
     <script src="../app/main.js" type="module"></script>
+    <script src="../app/forum.js" type="module"></script>
   </body>
-
-  <script>
-    // Burger menus
-    document.addEventListener('DOMContentLoaded', function() {
-        // open
-        const burger = document.querySelectorAll('.navbar-burger');
-        const menu = document.querySelectorAll('.navbar-menu');
-    
-        if (burger.length && menu.length) {
-            for (var i = 0; i < burger.length; i++) {
-                burger[i].addEventListener('click', function() {
-                    for (var j = 0; j < menu.length; j++) {
-                        menu[j].style.transform = "translate(0%)";
-                        menu[j].style.display ="flex"
-                    }
-                });
-            }
-        }
-    
-        // close
-        const close = document.querySelectorAll('.navbar-close');
-        const backdrop = document.querySelectorAll('.navbar-backdrop');
-    
-        if (close.length) {
-            for (var i = 0; i < close.length; i++) {
-                close[i].addEventListener('click', function() {
-                    for (var j = 0; j < menu.length; j++) {
-                        menu[j].style.transform = "translate(-100%)";
-                    }
-                });
-            }
-        }
-    
-        if (backdrop.length) {
-            for (var i = 0; i < backdrop.length; i++) {
-                backdrop[i].addEventListener('click', function() {
-                    for (var j = 0; j < menu.length; j++) {
-                      menu[j].style.transform = "translate(-100%)";
-                    }
-                });
-            }
-        }
-    });
-    </script>
 </html>

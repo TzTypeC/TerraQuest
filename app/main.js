@@ -1,5 +1,4 @@
 import {decrypt} from './encryptdecrypt.js'
-import { newPost } from './firestore.js';
 
 document.addEventListener("DOMContentLoaded", function() {
     const username = localStorage.getItem('USFwxmJoxR');
@@ -19,15 +18,43 @@ document.addEventListener("DOMContentLoaded", function() {
         loginButtonMobile.style.display='block';
         accountPageBtnMobile.style.display='none';
     }
+
+    // open
+    const burger = document.querySelectorAll('.navbar-burger');
+    const menu = document.querySelectorAll('.navbar-menu');
     
-    const submitPostButton = document.getElementById('submitPostButton');
+    if (burger.length && menu.length) {
+        for (var i = 0; i < burger.length; i++) {
+            burger[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                    menu[j].style.transform = "translate(0%)";
+                    menu[j].style.display ="flex"
+                }
+            });
+        }
+    }
     
-    submitPostButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        const postContentTitle = document.getElementById('postContentTitle').value;
-        const postContentDesc = document.getElementById('postContentDesc').value;
+    // close
+    const close = document.querySelectorAll('.navbar-close');
+    const backdrop = document.querySelectorAll('.navbar-backdrop');
     
-        newPost(postContentTitle, postContentDesc, "test", "test")
-        
-    })
+    if (close.length) {
+        for (var i = 0; i < close.length; i++) {
+            close[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                    menu[j].style.transform = "translate(-100%)";
+                }
+            });
+        }
+    }
+    
+    if (backdrop.length) {
+        for (var i = 0; i < backdrop.length; i++) {
+            backdrop[i].addEventListener('click', function() {
+                for (var j = 0; j < menu.length; j++) {
+                  menu[j].style.transform = "translate(-100%)";
+                }
+            });
+        }
+    }
 });
