@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import { getFirestore, doc, getDoc, collection, getDocs, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-import { decrypt } from "./encryptdecrypt";
+import { decrypt } from "./encryptdecrypt.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAyTreQ2OdbCgct4t_y3OENaweKHwEQGKg",
