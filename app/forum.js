@@ -14,11 +14,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+let lastPost = 0; // Untuk menyimpan jumlah post yang sudah dimuat
+let isLoading = false; // Untuk menghindari loading ganda
+
 // Fungsi untuk mengambil jumlah post dan dokumen dari Firestore
-async function fetchPosts() {
+async function fetchPosts(limit) {
     const postDataDoc = doc(db, "posts", "postData");
     const postDataSnapshot = await getDoc(postDataDoc);
-    const lastPost = postDataSnapshot.data().lastPost; // Ambil jumlah post
+    lastPost = postDataSnapshot.data().lastPost; // Ambil jumlah post
 
     const postsCollection = collection(db, "posts");
     const postsSnapshot = await getDocs(postsCollection);
@@ -29,9 +32,8 @@ async function fetchPosts() {
     // Acak urutan post
     const randomizedPosts = shuffleArray(posts);
 
-    randomizedPosts.forEach(post => {
-        generatePostTemplate(post);
-    });
+    // Hanya ambil jumlah post sesuai limit
+    return randomizedPosts.slice(0, limit);
 }
 
 // Fungsi untuk mengacak array
@@ -49,7 +51,7 @@ function generatePostTemplate(post) {
     articleContainer.className = "h-fit px-8 py-8 relative";
 
     articleContainer.innerHTML = `
-                  <h2
+<h2
             class="text-lg pb-2 font-medium text-gray-900"
           >
               Posted by <span class="underline text-xl inline">${post.author}</span>
@@ -144,5 +146,45 @@ function generatePostTemplate(post) {
     document.getElementById("contentForum").appendChild(articleContainer);
 }
 
-// Panggil fungsi untuk mengambil artikel saat halaman dimuat
-document.addEventListener("DOMContentLoaded", fetchPosts);
+// Fungsi untuk memuat artikel saat pengguna scroll ke bawah
+async function loadMorePosts(limit = 5) {
+    if (isLoading) return; // Cegah pemanggilan ganda
+    isLoading = true;
+
+    // Tampilkan pesan loading
+    const loadingMessage = document.createElement("div");
+    loadingMessage.innerText = "Content loaded please wait...";
+    loadingMessage.className = "text-center my-4";
+    document.getElementById("contentForum").appendChild(loadingMessage);
+
+    // Ambil artikel
+    const posts = await fetchPosts(limit);
+    posts.forEach(post => {
+        generatePostTemplate(post);
+    });
+
+    // Hapus pesan loading
+    loadingMessage.remove();
+    isLoading = false;
+
+    // Jika sudah memuat semua post, hapus event listener
+    if (lastPost <= document.querySelectorAll("article").length) {
+        window.removeEventListener("scroll", handleScroll);
+    }
+}
+
+// Fungsi untuk menangani scroll
+function handleScroll() {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+    if (scrollTop + clientHeight >= scrollHeight - 5) {
+        loadMorePosts();
+    }
+}
+
+// Event listener untuk memuat 3 post pada saat DOMContentLoaded
+document.addEventListener("DOMContentLoaded", async () => {
+    await loadMorePosts(3); // Tampilkan 3 post pertama
+});
+
+// Tambahkan event listener untuk scroll
+window.addEventListener("scroll", handleScroll);
