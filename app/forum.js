@@ -16,6 +16,7 @@ const db = getFirestore(app);
 
 let lastPost = 0; // Untuk menyimpan jumlah post yang sudah dimuat
 let isLoading = false; // Untuk menghindari loading ganda
+const displayedPosts = new Set(); // Set untuk menyimpan ID post yang sudah ditampilkan
 
 // Fungsi untuk mengambil jumlah post dan dokumen dari Firestore
 async function fetchPosts(limit) {
@@ -49,97 +50,47 @@ function shuffleArray(array) {
 function generatePostTemplate(post) {
     const articleContainer = document.createElement("article");
     articleContainer.className = "h-fit px-8 py-8 relative";
-
+    
     articleContainer.innerHTML = `
-<h2
-            class="text-lg pb-2 font-medium text-gray-900"
-          >
-              Posted by <span class="underline text-xl inline">${post.author}</span>
-
-          </h2>
-
-          <!-- Post Images-->
-          <div class="flex flex-col md:flex-row items-center w-full">
+        <h2 class="text-lg pb-2 font-medium text-gray-900">
+            Posted by <span class="underline text-xl inline">${post.author}</span>
+        </h2>
+        <div class="flex flex-col md:flex-row items-center w-full">
             <div class="h-[270px] w-full md:h-[540px] md:w-1/2">
-              <label class="cursor-pointer relative">
-                <input
-                  type="checkbox"
-                  value=""
-                  class="peer sr-only absolute left-1/2 bottom-1/2"
-                />
-                <img
-                  alt=""
-                  src="${post.fsImg}"
-                  class="h-full w-full object-cover object-center rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl shadow-xl peer-checked:object-contain"
-                />
-              </label>
+                <label class="cursor-pointer relative">
+                    <input type="checkbox" value="" class="peer sr-only absolute left-1/2 bottom-1/2" />
+                    <img alt="" src="${post.fsImg}" class="h-full w-full object-cover object-center rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl shadow-xl peer-checked:object-contain" />
+                </label>
             </div>
             <div class="h-[270px] w-full md:h-[540px] md:w-1/2">
-              <label class="cursor-pointer relative">
-                <input
-                  type="checkbox"
-                  value=""
-                  class="peer sr-only absolute left-1/2 bottom-1/2"
-                />
-                <img
-                  alt=""
-                  src="${post.scImg}"
-                  class="h-full w-full object-cover object-center rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl shadow-xl peer-checked:object-contain"
-                />
-              </label>
+                <label class="cursor-pointer relative">
+                    <input type="checkbox" value="" class="peer sr-only absolute left-1/2 bottom-1/2" />
+                    <img alt="" src="${post.scImg}" class="h-full w-full object-cover object-center rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl shadow-xl peer-checked:object-contain" />
+                </label>
             </div>
-          </div>
-
-          <!-- Post Title & Description -->
-          <div>
+        </div>
+        <div>
             <div class="px-8 py-4">
-              <a href="#">
-                <h3 class="text-3xl font-medium text-gray-900">
-                  ${post.title}
-                </h3>
-              </a>
-              <p class="mt-2 line-clamp-3 text-lg/relaxed text-gray-500">
-              ${post.desc}
-              </p>
+                <a href="#">
+                    <h3 class="text-3xl font-medium text-gray-900">${post.title}</h3>
+                </a>
+                <p class="mt-2 line-clamp-3 text-lg/relaxed text-gray-500">${post.desc}</p>
             </div>
-          </div>
-
-          <!-- Upvote / Downvote Button -->
-          <div class="flex items-center space-x-4 float-right">
+        </div>
+        <div class="flex items-center space-x-4 float-right">
             <button class="p-2 group border rounded-full hover:bg-[#00d89e]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 stroke-tq-dcyan group-hover:stroke-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 15l7-7 7 7"
-                />
-              </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-tq-dcyan group-hover:stroke-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                </svg>
             </button>
-            <span class="text-2xl font-bold">0</span>
+            <span class="text-2xl font-bold">${post.upVote}</span>
             <button class="p-2 group border rounded-full hover:bg-rose-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 stroke-rose-500 group-hover:stroke-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-              <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-              />
-              </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-rose-500 group-hover:stroke-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
             </button>
-          </div>
+            <span class="text-2xl font-bold">${post.downVote}</span>
+        </div>
     `;
 
     // Sisipkan artikel ke dalam elemen yang diinginkan di DOM
@@ -159,9 +110,16 @@ async function loadMorePosts(limit = 5) {
 
     // Ambil artikel
     const posts = await fetchPosts(limit);
-    posts.forEach(post => {
-        generatePostTemplate(post);
-    });
+    let newPostsCount = 0; // Untuk menghitung jumlah post baru yang ditambahkan
+
+    for (const post of posts) {
+        // Cek jika post sudah ditampilkan
+        if (!displayedPosts.has(post.id)) {
+            generatePostTemplate(post);
+            displayedPosts.add(post.id); // Tambahkan ID post ke Set
+            newPostsCount++;
+        }
+    }
 
     // Hapus pesan loading
     loadingMessage.remove();
