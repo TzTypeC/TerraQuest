@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import{getAuth, sendPasswordResetEmail, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"
-import{getFirestore, setDoc, doc, getDoc} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"
+import{getAuth, sendPasswordResetEmail, updateProfile, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"
+import{getFirestore, setDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -61,76 +61,108 @@ signUp.addEventListener("click", (event) => {
 
     const auth = getAuth();
     const db = getFirestore();
+    const docRef=doc(db, "users", username);
 
-    if(password==rePassword){
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential)=>{
-            const user = userCredential.user;
-            const userData = {
-                email: email,
-                username: username,
-                exp: 0,
-                post: [],
-                guild: 0,
-                dateJoin: formatDate,
-                followers: [],
-                following: [],
-            };
+    // Ambil dokumen
+    getDoc(docRef)
+    .then((docSnap)=>{
+        // Cek Apakah username sudah di pakai
+        if(docSnap.exists()){
+            //Bila Username terpakai maka beri alert
             showMessage(
-                'Success',
-                'Account Created Successfully',
+                'Username Already Registered',
+                'Already registered? Try Login or Use Another Username',
                 'Up',
-                true
-            );
-            const docRef=doc(db, "users", user.uid);
-            setDoc(docRef,userData)
-            .then(()=>{
-                document.querySelector(".container").classList.remove("sign-up-mode");
-                document.title = "Sign In"; 
-            })
-            .catch((error)=>{
-                console.error("error writing document", error);
-            });
-        })
-        .catch((error)=>{
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode + " " + errorMessage)
-            if(errorCode=='auth/email-already-in-use'){
-                showMessage(
-                    'Email Addres Already Exist',
-                    'Diese E-Mail-Adresse wird bereits verwendet. Sie können sich anmelden oder eine andere E-Mail-Adresse verwenden',
-                    'Up',
-                    false
-                )
-            }
-            else if(errorCode=='auth/invalid-email'){
-                showMessage(
-                    'Email Invalid',
-                    'Please enter a valid email address',
-                    'Up',
-                    false
-                )
+                false
+            )
+        }
+        else{
+            //Cek Apakah Password = Re-Typed Password
+            if(password==rePassword){
+                //Buat User dengan Email Dan Password
+                createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential)=>{
+                    // Masukkan UserData Awal
+                    const userData = {
+                        email: email,
+                        username: username,
+                        exp: 0,
+                        post: [],
+                        guild: 0,
+                        dateJoin: formatDate,
+                        followers: [],
+                        following: [],
+                    };
+                    // Alert Regist Sukses
+                    showMessage(
+                        'Success',
+                        'Account Created Successfully',
+                        'Up',
+                        true
+                    );
+                    // Membuat Database Di Firestore
+                    setDoc(docRef,userData)
+                    .then(()=>{
+                        // Kembali Ke Mode Login
+                        document.querySelector(".container").classList.remove("sign-up-mode");
+                        document.title = "Sign In"; 
+                    })
+                    .catch((error)=>{
+                        console.error("error writing document", error);
+                    });
+                    const auth = getAuth();
+                    const user = auth.currentUser; 
+                    // Update Display Name sesua dengan username
+                    updateProfile(user, {
+                        displayName: username
+                    }).then(() => {
+                        console.log("Display name berhasil diupdate");
+                    }).catch((error) => {
+                        console.error("Gagal mengupdate display name:", error);
+                    });
+                })
+                .catch((error)=>{
+                    // Menampilkan Pesan Error
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode + " " + errorMessage)
+                    if(errorCode=='auth/email-already-in-use'){
+                        showMessage(
+                            'Email Addres Already Exist',
+                            'Diese E-Mail-Adresse wird bereits verwendet. Sie können sich anmelden oder eine andere E-Mail-Adresse verwenden',
+                            'Up',
+                            false
+                        )
+                    }
+                    else if(errorCode=='auth/invalid-email'){
+                        showMessage(
+                            'Email Invalid',
+                            'Please enter a valid email address',
+                            'Up',
+                            false
+                        )
+                    }
+                    else{
+                        showMessage(
+                            'Error',
+                            'Unable to create user',
+                            'Up',
+                            false
+                        )
+                    }
+                })
             }
             else{
                 showMessage(
                     'Error',
-                    'Unable to create user',
+                    "Password and Retyped Password didn't match",
                     'Up',
                     false
-                )
+                );
+                document.getElementById('rPasswordConfirm').value = ''
             }
-        })
-    }
-    else{
-        showMessage(
-            'Error',
-            "Password and Retyped Password didn't match",
-            'Up',
-            false
-        );
-        document.getElementById('rPasswordConfirm').value = ''
-    }
+        }
+    })
 })
 
 const signIn = document.getElementById('submitSignIn')
@@ -150,13 +182,16 @@ signIn.addEventListener('click', (event) =>{
             true
         )
         const user = userCredential.user;
+        console.log(userCredential)
         localStorage.setItem('loggedInUserId',user.uid)
-        const docRef = doc(db, "users", user.uid);
+        console.log(user.displayName);
+        const docRef = doc(db, "users", user.displayName);
         getDoc(docRef)
         .then((docSnap)=>{
             if(docSnap.exists()){
                 const userData=docSnap.data();
                 const encryptedUsn = encrypt(userData.username);
+                console.log(userData.username);
                 localStorage.setItem('USFwxmJoxR',encryptedUsn)
             }
         })
