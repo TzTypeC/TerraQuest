@@ -94,6 +94,7 @@ signUp.addEventListener("click", (event) => {
                         following: [],
                         upVotedPost: [],
                         downVotedPost: [],
+                        votedPost: []
                     };
                     // Alert Regist Sukses
                     showMessage(
