@@ -210,3 +210,16 @@ async function downvote(postId) {
     }
 }
 
+const loggedInUser = localStorage.getItem('loggedInUserId')
+const createPostButton = document.getElementById('createPostButton')
+
+createPostButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    if(loggedInUser){
+        window.location.href='./upload.html';
+    }
+    else{
+        window.location.href='./mustlogin.html';
+    }
+})
+
