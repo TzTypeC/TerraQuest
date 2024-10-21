@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getFirestore, doc, getDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { getFirestore, doc, getDoc, collection, getDocs, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAyTreQ2OdbCgct4t_y3OENaweKHwEQGKg",
@@ -78,18 +78,18 @@ function generatePostTemplate(post) {
             </div>
         </div>
         <div class="flex items-center space-x-4 float-right">
-            <button class="p-2 group border rounded-full hover:bg-[#00d89e]">
+            <button class="p-2 group border rounded-full hover:bg-[#00d89e]" data-id="${post.id}" id="upvote-${post.id}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-tq-dcyan group-hover:stroke-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
                 </svg>
             </button>
-            <span class="text-2xl font-bold">${post.upVote}</span>
-            <button class="p-2 group border rounded-full hover:bg-rose-500">
+            <span class="text-2xl font-bold" id="upvoteCount-${post.id}">${post.upVote}</span>
+            <button class="p-2 group border rounded-full hover:bg-rose-500" data-id="${post.id}" id="downvote-${post.id}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-rose-500 group-hover:stroke-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
             </button>
-            <span class="text-2xl font-bold">${post.downVote}</span>
+            <span class="text-2xl font-bold" id="downvoteCount-${post.id}">${post.downVote}</span>
         </div>
     `;
 
@@ -117,6 +117,11 @@ async function loadMorePosts(limit = 5) {
         if (!displayedPosts.has(post.id)) {
             generatePostTemplate(post);
             displayedPosts.add(post.id); // Tambahkan ID post ke Set
+
+            // Tambahkan event listener untuk upvote dan downvote
+            document.getElementById(`upvote-${post.id}`).addEventListener("click", () => upvote(post.id));
+            document.getElementById(`downvote-${post.id}`).addEventListener("click", () => downvote(post.id));
+
             newPostsCount++;
         }
     }
@@ -146,3 +151,29 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // Tambahkan event listener untuk scroll
 window.addEventListener("scroll", handleScroll);
+
+// Fungsi untuk upvote
+async function upvote(postId) {
+    const postRef = doc(db, "posts", postId);
+    await updateDoc(postRef, {
+        upVote: increment(1) // Increment upVote field
+    });
+    // Ambil elemen untuk mengupdate tampilan
+    const upvoteCountElement = document.getElementById(`upvoteCount-${postId}`);
+    if (upvoteCountElement) {
+        upvoteCountElement.innerText = parseInt(upvoteCountElement.innerText) + 1; // Update tampilan
+    }
+}
+
+// Fungsi untuk downvote
+async function downvote(postId) {
+    const postRef = doc(db, "posts", postId);
+    await updateDoc(postRef, {
+        downVote: increment(1) // Increment downVote field
+    });
+    // Ambil elemen untuk mengupdate tampilan
+    const downvoteCountElement = document.getElementById(`downvoteCount-${postId}`);
+    if (downvoteCountElement) {
+        downvoteCountElement.innerText = parseInt(downvoteCountElement.innerText) + 1; // Update tampilan
+    }
+}
