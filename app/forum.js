@@ -130,7 +130,9 @@ async function loadMorePosts(limit = 5) {
     }
 
     // Hapus pesan loading
-    loadingMessage.remove();
+    if(limit==5){
+        loadingMessage.remove();
+    }
     isLoading = false;
 
     // Jika sudah memuat semua post, hapus event listener
