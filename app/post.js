@@ -2,7 +2,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import { getFirestore, setDoc, doc, getDoc, updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 import { decrypt } from './encryptdecrypt.js';
-import { showMessagePost } from "./post.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAyTreQ2OdbCgct4t_y3OENaweKHwEQGKg",
