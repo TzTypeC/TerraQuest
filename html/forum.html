@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TerraQuest</title>
     <link href="../style/tailwind-css.css" rel="stylesheet" />
+    <link href="../style/load-animation.css" rel="stylesheet" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -17,6 +18,7 @@
   <body>
     <!-- FULL BODY WRAPPER / BACKGROUND -->
     <div class="bg-tq-midnight w-full h-screen relative">
+      <div class="loader">Loading...</div>
 
       <!-- SIDEBAR -->
       <!-- <div class="h-full w-64 bg-gradient-to-tr to-tq-ablue from-tq-midnight fixed py-16 z-40" >
@@ -189,104 +191,6 @@
           class="w-full md:w-5/6 lg:w-9/12 h-max mt-3 flex flex-col divide-y-2 items-center bg-slate-50 border border-slate-200 rounded-xl"
           id="contentForum"
         >
-        <article class="h-fit px-8 py-8 relative">
-          <!-- Post Author -->
-          <h2
-            class="text-lg pb-2 font-medium text-gray-900"
-          >
-              Posted by <span class="underline text-xl inline">jkthw</span>
-
-          </h2>
-
-          <!-- Post Images-->
-          <div class="flex flex-col md:flex-row items-center w-full">
-            <div class="h-[270px] w-full md:h-[540px] md:w-1/2">
-              <label class="cursor-pointer relative">
-                <input
-                  type="checkbox"
-                  value=""
-                  class="peer sr-only absolute left-1/2 bottom-1/2"
-                />
-                <img
-                  alt=""
-                  src="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  class="h-full w-full object-cover object-center rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl shadow-xl peer-checked:object-contain"
-                />
-              </label>
-            </div>
-            <div class="h-[270px] w-full md:h-[540px] md:w-1/2">
-              <label class="cursor-pointer relative">
-                <input
-                  type="checkbox"
-                  value=""
-                  class="peer sr-only absolute left-1/2 bottom-1/2"
-                />
-                <img
-                  alt=""
-                  src="https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  class="h-full w-full object-cover object-center rounded-b-2xl md:rounded-bl-none md:rounded-r-2xl shadow-xl peer-checked:object-contain"
-                />
-              </label>
-            </div>
-          </div>
-
-          <!-- Post Title & Description -->
-          <div>
-            <div class="px-8 py-4">
-              <a href="#">
-                <h3 class="text-3xl font-medium text-gray-900">
-                  Finding the Journey to Mordor
-                </h3>
-              </a>
-              <p class="mt-2 line-clamp-3 text-lg/relaxed text-gray-500">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Recusandae dolores, possimus pariatur animi temporibus
-                nesciunt praesentium dolore sed nulla ipsum eveniet corporis
-                quidem, mollitia itaque minus soluta, voluptates neque
-                explicabo tempora nisi culpa eius atque dignissimos. Molestias
-                explicabo corporis voluptatem?
-              </p>
-            </div>
-          </div>
-
-          <!-- Upvote / Downvote Button -->
-          <div class="flex items-center space-x-4 float-right">
-            <button class="p-2 group border rounded-full hover:bg-[#00d89e]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 stroke-tq-dcyan group-hover:stroke-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 15l7-7 7 7"
-                />
-              </svg>
-            </button>
-            <span class="text-2xl font-bold">0</span>
-            <button class="p-2 group border rounded-full hover:bg-rose-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 stroke-rose-500 group-hover:stroke-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-              <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-              />
-              </svg>
-            </button>
-          </div>
-
-        </article>
         </div>
       </div>
     

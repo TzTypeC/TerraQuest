@@ -104,10 +104,12 @@ async function loadMorePosts(limit = 5) {
     isLoading = true;
 
     // Tampilkan pesan loading
-    const loadingMessage = document.createElement("div");
-    loadingMessage.innerText = "Content loaded please wait...";
-    loadingMessage.className = "text-center my-4";
-    document.getElementById("contentForum").appendChild(loadingMessage);
+    if(limit==5){
+        const loadingMessage = document.createElement("div");
+        loadingMessage.innerText = "Content loaded please wait...";
+        loadingMessage.className = "text-center my-4";
+        document.getElementById("contentForum").appendChild(loadingMessage);
+    }
 
     // Ambil artikel
     const posts = await fetchPosts(limit);
