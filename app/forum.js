@@ -132,6 +132,9 @@ async function loadMorePosts(limit = 5) {
     // Hapus pesan loading
     if(limit==5){
         loadingMessage.remove();
+    } else {
+        const mainLoad = document.getElementById('loadMain')
+        mainLoad.style.display='none';
     }
     isLoading = false;
 
