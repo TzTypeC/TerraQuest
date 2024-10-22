@@ -158,28 +158,51 @@ async function upvote(postId) {
     const userRef = doc(db, "users", username);
     const userSnapshot = await getDoc(userRef);
 
-    // Cek apakah user sudah upvote post ini
-    if (userSnapshot.exists() && !userSnapshot.data().upVotedPost.includes(postId)) {
-        const postRef = doc(db, "posts", postId);
+    if (userSnapshot.exists()) {
+        const userData = userSnapshot.data();
         
-        await updateDoc(postRef, {
-            upVote: increment(1) // Increment upVote field
-        });
-        
-        // Update user record
-        await updateDoc(userRef, {
-            upVotedPost: [...userSnapshot.data().upVotedPost, postId] // Tambahkan postId ke upVotedPost
-        });
-        
-        // Ambil elemen untuk mengupdate tampilan
-        const upvoteCountElement = document.getElementById(`upvoteCount-${postId}`);
-        if (upvoteCountElement) {
-            upvoteCountElement.innerText = parseInt(upvoteCountElement.innerText) + 1; // Update tampilan
+        // Jika post sudah di-downvote, hapus downvote dan pindah ke upvote
+        if (userData.downVotedPost.includes(postId)) {
+            const postRef = doc(db, "posts", postId);
+            await updateDoc(postRef, {
+                downVote: increment(-1), // Kurangi downVote field
+                upVote: increment(1) // Tambahkan upVote field
+            });
+            
+            // Update field di dokumen pengguna
+            await updateDoc(userRef, {
+                downVotedPost: userData.downVotedPost.filter(id => id !== postId), // Hapus postId dari downVotedPost
+                upVotedPost: [...userData.upVotedPost, postId] // Tambahkan postId ke upVotedPost
+            });
+        } 
+        // Jika post belum di-upvote, tambahkan upvote
+        else if (!userData.upVotedPost.includes(postId)) {
+            const postRef = doc(db, "posts", postId);
+            await updateDoc(postRef, {
+                upVote: increment(1) // Tambahkan upVote field
+            });
+            
+            // Update field di dokumen pengguna
+            await updateDoc(userRef, {
+                upVotedPost: [...userData.upVotedPost, postId] // Tambahkan postId ke upVotedPost
+            });
+        } else {
+            alert("You have already upvoted this post.");
+            return;
         }
-    } else {
-        alert("You have already upvoted this post.");
+
+        // Update tampilan upvote dan downvote count di halaman
+        const upvoteCountElement = document.getElementById(`upvoteCount-${postId}`);
+        const downvoteCountElement = document.getElementById(`downvoteCount-${postId}`);
+        if (upvoteCountElement) {
+            upvoteCountElement.innerText = parseInt(upvoteCountElement.innerText) + 1;
+        }
+        if (downvoteCountElement && userData.downVotedPost.includes(postId)) {
+            downvoteCountElement.innerText = parseInt(downvoteCountElement.innerText) - 1;
+        }
     }
 }
+
 
 
 async function downvote(postId) {
@@ -187,28 +210,51 @@ async function downvote(postId) {
     const userRef = doc(db, "users", username);
     const userSnapshot = await getDoc(userRef);
 
-    // Cek apakah user sudah downvote post ini
-    if (userSnapshot.exists() && !userSnapshot.data().downVotedPost.includes(postId)) {
-        const postRef = doc(db, "posts", postId);
+    if (userSnapshot.exists()) {
+        const userData = userSnapshot.data();
         
-        await updateDoc(postRef, {
-            downVote: increment(1) // Increment downVote field
-        });
+        // Jika post sudah di-upvote, hapus upvote dan pindah ke downvote
+        if (userData.upVotedPost.includes(postId)) {
+            const postRef = doc(db, "posts", postId);
+            await updateDoc(postRef, {
+                upVote: increment(-1), // Kurangi upVote field
+                downVote: increment(1) // Tambahkan downVote field
+            });
 
-        // Update user record
-        await updateDoc(userRef, {
-            downVotedPost: [...userSnapshot.data().downVotedPost, postId] // Tambahkan postId ke downVotedPost
-        });
+            // Update field di dokumen pengguna
+            await updateDoc(userRef, {
+                upVotedPost: userData.upVotedPost.filter(id => id !== postId), // Hapus postId dari upVotedPost
+                downVotedPost: [...userData.downVotedPost, postId] // Tambahkan postId ke downVotedPost
+            });
+        } 
+        // Jika post belum di-downvote, tambahkan downvote
+        else if (!userData.downVotedPost.includes(postId)) {
+            const postRef = doc(db, "posts", postId);
+            await updateDoc(postRef, {
+                downVote: increment(1) // Tambahkan downVote field
+            });
 
-        // Ambil elemen untuk mengupdate tampilan
-        const downvoteCountElement = document.getElementById(`downvoteCount-${postId}`);
-        if (downvoteCountElement) {
-            downvoteCountElement.innerText = parseInt(downvoteCountElement.innerText) + 1; // Update tampilan
+            // Update field di dokumen pengguna
+            await updateDoc(userRef, {
+                downVotedPost: [...userData.downVotedPost, postId] // Tambahkan postId ke downVotedPost
+            });
+        } else {
+            alert("You have already downvoted this post.");
+            return;
         }
-    } else {
-        alert("You have already downvoted this post.");
+
+        // Update tampilan downvote dan upvote count di halaman
+        const downvoteCountElement = document.getElementById(`downvoteCount-${postId}`);
+        const upvoteCountElement = document.getElementById(`upvoteCount-${postId}`);
+        if (downvoteCountElement) {
+            downvoteCountElement.innerText = parseInt(downvoteCountElement.innerText) + 1;
+        }
+        if (upvoteCountElement && userData.upVotedPost.includes(postId)) {
+            upvoteCountElement.innerText = parseInt(upvoteCountElement.innerText) - 1;
+        }
     }
 }
+
 
 const loggedInUser = localStorage.getItem('loggedInUserId')
 const createPostButton = document.getElementById('createPostButton')
