@@ -18,7 +18,7 @@
   <body>
     <!-- FULL BODY WRAPPER / BACKGROUND -->
     <div class="bg-tq-midnight w-full h-screen relative">
-      <div class="loader" id="loadMain">Loading...</div>
+      <div class="loader absolute top-1/2 right-1/2" id="loadMain">Loading...</div>
 
       <!-- SIDEBAR -->
       <!-- <div class="h-full w-64 bg-gradient-to-tr to-tq-ablue from-tq-midnight fixed py-16 z-40" >
@@ -171,12 +171,12 @@
 
       <!-- CONTENT -->
       <div
-        class="bg-slate-100 pt-16 pt-18 flex flex-col items-center w-full h-max mx-auto"
+        class="bg-slate-100 pt-16 flex flex-col items-center w-full h-max mx-auto"
       >
         <!-- CREATE NEW POST -->
         <button
           id="createPostButton"
-          class="w-fit h-16 bg-gradient-to-tr to-tq-blue via-tq-dblue from-tq-midnight bg-size-200 bg-pos-0 hover:bg-pos-100 transition-all duration-300 flex items-center justify-center rounded-xl fixed right-6 bottom-6 z-10"
+          class="w-fit h-16 bg-gradient-to-tr to-tq-blue via-tq-dblue from-tq-midnight bg-size-200 bg-pos-0 hover:bg-pos-100 transition-all duration-300 flex items-center justify-center rounded-xl fixed left-6 bottom-6 z-10"
         >
           <div
             class="font-semibold font-poppins text-xl flex items-center text-grad px-5"
@@ -188,12 +188,12 @@
 
         <!-- CONTENT SCROLL -->
         <div
-          class="w-full md:w-5/6 lg:w-9/12 h-max mt-3 flex flex-col divide-y-2 items-center bg-slate-50 border border-slate-200 rounded-xl"
+          class="w-full md:w-5/6 lg:w-9/12 h-max x-10 mt-3 flex flex-col divide-y-2 items-center bg-slate-50 border border-slate-200 rounded-xl"
           id="contentForum"
         >
         </div>
       </div>
-    
+    </div>
     <!-- FULL BODY WRAPPER END -->
     <script src="../app/main.js" type="module"></script>
     <script src="../app/forum.js" type="module"></script>

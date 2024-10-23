@@ -131,16 +131,16 @@ signUp.addEventListener("click", (event) => {
                     console.log(errorCode + " " + errorMessage)
                     if(errorCode=='auth/email-already-in-use'){
                         showMessage(
-                            'Email Addres Already Exist',
-                            'Diese E-Mail-Adresse wird bereits verwendet. Sie können sich anmelden oder eine andere E-Mail-Adresse verwenden',
+                            'Alamat Email sudah digunakan',
+                            'Gunakan Email lainnya atau Sign-In dengan Email ini.',
                             'Up',
                             false
                         )
                     }
                     else if(errorCode=='auth/invalid-email'){
                         showMessage(
-                            'Email Invalid',
-                            'Please enter a valid email address',
+                            'Email Tidak Valid',
+                            'Mohon masukkan alamat Email yang valid',
                             'Up',
                             false
                         )
@@ -148,7 +148,7 @@ signUp.addEventListener("click", (event) => {
                     else{
                         showMessage(
                             'Error',
-                            'Unable to create user',
+                            'Gagal mendaftarkan user',
                             'Up',
                             false
                         )
@@ -158,7 +158,7 @@ signUp.addEventListener("click", (event) => {
             else{
                 showMessage(
                     'Error',
-                    "Password and Retyped Password didn't match",
+                    "Konfirmasi password tidak cocok.",
                     'Up',
                     false
                 );
@@ -180,7 +180,7 @@ signIn.addEventListener('click', (event) =>{
     .then((userCredential)=>{
         showMessage(
             'Success',
-            'Login is successful, you will be redirected in a sec...',
+            'Login berhasil, kamu akan segera diarahkan dalam beberapa detik..',
             'In',
             true
         )
@@ -210,7 +210,7 @@ signIn.addEventListener('click', (event) =>{
         if(errorCode==='auth/invalid-credential'){
             showMessage(
                 'Error',
-                'Incorrect Email or Password',
+                'Password atau Email salah',
                 'In',
                 false
             )
@@ -218,8 +218,8 @@ signIn.addEventListener('click', (event) =>{
         }
         if(errorCode==='auth/invalid-email'){
             showMessage(
-                'Email Invalid',
-                'Please enter a valid email address',
+                'Email Tidak Valid',
+                'Mohon masukkan alamt Email yang valid',
                 'In',
                 false
             )
@@ -237,8 +237,8 @@ reset.addEventListener("click", (event) =>{
     sendPasswordResetEmail(auth, email)
     .then(() => {
         showMessage(
-            "Check your inbox",
-            "An email with a link to reset your password was sent to the email address associated with your account",
+            "Cek Inbox Anda",
+            "Kami telah mengirimkan Email untuk mengatur ulang passwordmu.",
             'FP',
             true
         )
@@ -249,8 +249,8 @@ reset.addEventListener("click", (event) =>{
         console.log(errorCode, errorMessage)
         if(errorCode==='auth/invalid-email'){
             showMessage(
-                'Email Invalid',
-                'Please enter a valid email address',
+                'Email Tidak Valid',
+                'Mohon masukkan alamat Email yang valid',
                 'FP',
                 false
             )
